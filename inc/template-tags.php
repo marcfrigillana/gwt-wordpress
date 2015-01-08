@@ -31,7 +31,7 @@ function gwt_wp_content_nav( $nav_id ) {
 
 	?>
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
-		<h5 class="screen-reader-text"><?php _e( 'Post navigation', 'gwt_wp' ); ?></h5>
+		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'gwt_wp' ); ?></h1>
 
 	<?php if ( is_single() ) : // navigation links for single posts ?>
 
@@ -167,17 +167,22 @@ if ( ! function_exists( 'gwt_wp_posted_on' ) ) :
  */
 function gwt_wp_posted_on() {
 	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) )
-		$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
+	//if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) )
+		//$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
 
-	$time_string = sprintf( $time_string,
+	/*$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date() ),
 		esc_attr( get_the_modified_date( 'c' ) ),
 		esc_html( get_the_modified_date() )
 	);
+	*/
+	$time_string = sprintf( $time_string,
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() )
+	);
 
-	printf( __( '<span class="posted-on">Posted on %1$s</span>', 'gwt_wp' ),
+	printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'gwt_wp' ),
 		sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),
