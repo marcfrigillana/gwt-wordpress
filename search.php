@@ -9,7 +9,7 @@ get_header();
 include_once('inc/banner.php');
 ?>
 
-<div id="main" class="container-main" role="document">
+<div id="main-content" class="container-main" role="document">
 	<div class="row search-results">
 		<div id="content" class="<?php govph_displayoptions( 'govph_content_position' ); ?>large-12 columns">
 			<?php if ( have_posts() ) : ?>

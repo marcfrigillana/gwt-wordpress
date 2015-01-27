@@ -156,4 +156,4 @@
 <?php govph_displayoptions( 'govph_slider_end' ); ?>
 </div>
 
-<?php govph_displayoptions( 'govph_mainmenu' ); ?>
+<?php govph_displayoptions( 'govph_auxmenu' ); ?>

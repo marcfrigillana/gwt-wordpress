@@ -1,4 +1,9 @@
 <?php
+/*
+Template Name: Search Page
+*/
+?>
+<?php
 /**
  * The template for displaying all pages.
  *
@@ -11,7 +16,6 @@
  */
 
 get_header();
-include_once('inc/banner.php');
 ?>
 
 <?php govph_displayoptions( 'govph_panel_top' ); ?>
@@ -20,6 +24,7 @@ include_once('inc/banner.php');
 	<div class="row">
 		
 		<div id="content" class="<?php govph_displayoptions( 'govph_content_position' ); ?>columns" role="main">
+			<h1><?php the_title(); ?></h1>
 			<?php while ( have_posts() ) : the_post(); ?>
 				
 				<?php get_template_part ('content', 'page'); ?>
@@ -31,6 +36,8 @@ include_once('inc/banner.php');
 					//	comments_template();
 				?>
 			<?php endwhile; //end of the loop ?>
+
+			<?php get_search_form(); ?>
 		</div><!-- end content -->
 		
 		<?php 

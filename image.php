@@ -10,7 +10,7 @@ include_once('inc/banner.php');
 ?>
 
   <div id="container-main" class="container-main" role="document">
-    <div id="main" class="row">
+    <div id="main-content" class="row">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 

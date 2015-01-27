@@ -65,7 +65,7 @@ else{
 ?>
 
 <!-- agency footer -->
-<div class="container-footer">
+<div id="footer" name="agencyfooter">
   <div id="supplementary" class="row">
     <?php if(is_active_sidebar('footer-1')): ?>
     <div class="columns widget-area<?php echo $footer_class ?>" role="complementary">
@@ -97,66 +97,32 @@ else{
   </div>
 </div>
 
-<!-- standard footer -->      
-    <div id="footer">
-      <div class="row">
+<!-- standard footer -->
+<div id="gwt-standard-footer"></div>
+<script type="text/javascript">
+    (function(d, s, id) {
+      var js, gjs = d.getElementById('gwt-standard-footer');
 
-        <div class="large-4 medium-4 columns">
-          <div class="row">
-            <div class="large-5 columns">
-				<img src="<?php bloginfo('template_url'); ?>/images/govph-seal-mono-footer.png" alt="Seal of the Republic of the Philippines - Monochromatic">
-			</div>
-            <div class="large-7 columns">
-              <h4>Republic of the Philippines</h4>
-              <p>All content is in the public domain unless otherwise stated.</p>
-              <p><a href="http://www.gov.ph/about-this-website/privacy-policy/">Privacy Policy</a></p>              
-            </div>
-          </div>
-        </div>
+      js = d.createElement(s); js.id = id;
+      js.src = "http://gwt-footer.googlecode.com/git/footer.js";
+      gjs.parentNode.insertBefore(js, gjs);
 
-        <div class="large-6 medium-6 columns">
-          <div class="row">
-            <div class="large-5 medium-5 columns">
-              <h4>About GOVPH</h4>
-              <p>Learn more about the Philippine government, its structure, how government works and the people behind it. </p>
-              <ul>
-                <li><a href="http://www.gov.ph">Official Gazette</a></li>
-                <li><a href="http://data.gov.ph">Open Data Portal</a></li>
-              </ul>              
-            </div>
-
-            <div class="large-4 medium-4 columns">
-              <h4>Government Links</h4>
-              <ul>
-                <li><a href="http://president.gov.ph">Office of the President</a></li>
-                <li><a href="http://ovp.gov.ph">Office of the Vice President</a></li>
-                <li><a href="http://www.senate.gov.ph">Senate of the Philippines</a></li>
-                <li><a href="http://www.congress.gov.ph">House of Representatives</a></li>
-                <li><a href="http://sc.judiciary.gov.ph">Supreme Court</a></li>
-                <li><a href="http://ca.judiciary.gov.ph">Court of Appeals</a></li>
-                <li><a href="http://sb.judiciary.gov.ph">Sandiganbayan</a></li>
-              </ul>              
-            </div>            
-          </div>
-        </div>
-          
-      </div>
-    </div>
+    }(document, 'script', 'gwt-footer-jsdk'));
+</script>
 <!-- end standard footer -->
-
+<?php /*
 <!--script>
 document.write('<script src=' +
 ('__proto__' in {} ? '<?php  echo get_template_directory_uri() . '/js/vendor/zepto'; ?>' : '<?php  echo get_template_directory_uri() . '/js/vendor/jquery'; ?>') +
 '.js><\/script>')
 </script-->
-
+*/ ?>
 <?php wp_footer(); ?>
-
 <script type="text/javascript">
 (function($) {
 	jQuery(document).foundation();
 })(jQuery);
 </script>
-
+<div><a href="#page" id="back-to-top" style="display: inline;">Back to Top</a></div>
 </body>
 </html>

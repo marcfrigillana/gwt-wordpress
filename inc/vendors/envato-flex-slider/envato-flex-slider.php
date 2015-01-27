@@ -17,10 +17,6 @@ define ("EFS_VERSION", "0.5");
 /*Files to Include*/
 require_once('slider-img-type.php');
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 9d6ea063031f5f1a0958a91cd617b8f6e909d4b2
 /**
  * gwt edit
  */
@@ -33,10 +29,6 @@ add_action( 'wp_enqueue_scripts', 'gwt_enqueue_sript' );
 /**
  * end gwt edit
  */
-<<<<<<< HEAD
-=======
-
->>>>>>> 9d6ea063031f5f1a0958a91cd617b8f6e909d4b2
 
 /*Add the Hooks to place the javascript in the header*/
 

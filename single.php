@@ -8,10 +8,10 @@
 get_header();
 include_once('inc/banner.php');
 ?>
+<?php govph_displayoptions( 'govph_panel_top' ); ?>
 
-<div id="main" class="container-main" role="document">
+<div id="main-content" class="container-main" role="document">
 	<div class="row">
-		<?php govph_displayoptions( 'govph_sidebar_left' ); ?>
 		
 		<div id="content" class="<?php govph_displayoptions( 'govph_content_position' ); ?>columns" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -29,9 +29,20 @@ include_once('inc/banner.php');
 			<?php endwhile; //end of the loop ?>
 		</div><!-- end content -->
 		
-				<?php govph_displayoptions( 'govph_sidebar_right' ); ?>
+		<?php 
+		if(is_active_sidebar('left-sidebar')){
+			govph_displayoptions( 'govph_sidebar_left' );
+		}
+		?>
+		<?php 
+		if(is_active_sidebar('right-sidebar')){
+			govph_displayoptions( 'govph_sidebar_right' );
+		}
+		?>
 		
 	</div><!-- end row -->
 </div><!-- end main -->
+
+<?php govph_displayoptions( 'govph_panel_bottom' ); ?>
 
 <?php get_footer(); ?>

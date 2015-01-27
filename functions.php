@@ -45,7 +45,7 @@ function gwt_wp_setup() {
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( array(
-    'main_nav' => __( 'Auxiliary Menu', 'gwt_wp' ),
+    'aux_nav' => __( 'Auxiliary Menu', 'gwt_wp' ),
 		'topbar_left' => __( 'Left Menu Top bar', 'gwt_wp' ),
 		'topbar_right' => __( 'Right Menu Top bar', 'gwt_wp' ),
 	) );
@@ -116,7 +116,7 @@ class Topbar_Nav_Menu extends Walker_Nav_Menu
 
      function end_el( &$output, $item, $depth = 0, $args = array() ) {
 
-          $output .= "</li><li class=\"divider\"></li>\n";
+          $output .= "</li>\n";
 
      }
 
@@ -209,36 +209,100 @@ function gwt_wp_widgets_init() {
     'after_title'   => '</h4>',
   ) );
   register_sidebar( array(
+    'name'          => __( 'Panel Top 1', 'gwt_wp' ),
+    'id'            => 'panel-top-1',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h6 class="widget-title">',
+    'after_title'   => '</h6>',
+  ) );
+  register_sidebar( array(
+    'name'          => __( 'Panel Top 2', 'gwt_wp' ),
+    'id'            => 'panel-top-2',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h6 class="widget-title">',
+    'after_title'   => '</h6>',
+  ) );
+  register_sidebar( array(
+    'name'          => __( 'Panel Top 3', 'gwt_wp' ),
+    'id'            => 'panel-top-3',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h6 class="widget-title">',
+    'after_title'   => '</h6>',
+  ) );
+  register_sidebar( array(
+    'name'          => __( 'Panel Top 4', 'gwt_wp' ),
+    'id'            => 'panel-top-4',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h6 class="widget-title">',
+    'after_title'   => '</h6>',
+  ) );
+  register_sidebar( array(
+    'name'          => __( 'Panel Bottom 1', 'gwt_wp' ),
+    'id'            => 'panel-bottom-1',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h6 class="widget-title">',
+    'after_title'   => '</h6>',
+  ) );
+  register_sidebar( array(
+    'name'          => __( 'Panel Bottom 2', 'gwt_wp' ),
+    'id'            => 'panel-bottom-2',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h6 class="widget-title">',
+    'after_title'   => '</h6>',
+  ) );
+  register_sidebar( array(
+    'name'          => __( 'Panel Bottom 3', 'gwt_wp' ),
+    'id'            => 'panel-bottom-3',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h6 class="widget-title">',
+    'after_title'   => '</h6>',
+  ) );
+  register_sidebar( array(
+    'name'          => __( 'Panel Bottom 4', 'gwt_wp' ),
+    'id'            => 'panel-bottom-4',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h6 class="widget-title">',
+    'after_title'   => '</h6>',
+  ) );
+  register_sidebar( array(
     'name'          => __( 'Agency Footer 1', 'gwt_wp' ),
     'id'            => 'footer-1',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget'  => '</aside>',
-    'before_title'  => '<h6 class="widget-title">',
-    'after_title'   => '</h6>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>',
   ) );
   register_sidebar( array(
     'name'          => __( 'Agency Footer 2', 'gwt_wp' ),
     'id'            => 'footer-2',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget'  => '</aside>',
-    'before_title'  => '<h6 class="widget-title">',
-    'after_title'   => '</h6>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>',
   ) );
   register_sidebar( array(
     'name'          => __( 'Agency Footer 3', 'gwt_wp' ),
     'id'            => 'footer-3',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget'  => '</aside>',
-    'before_title'  => '<h6 class="widget-title">',
-    'after_title'   => '</h6>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>',
   ) );
   register_sidebar( array(
     'name'          => __( 'Agency Footer 4', 'gwt_wp' ),
     'id'            => 'footer-4',
     'before_widget' => '<div id="%1$s" class="widget %2$s">',
     'after_widget'  => '</div>',
-    'before_title'  => '<h6 class="widget-title">',
-    'after_title'   => '</h6>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>',
   ) );
 }
 add_action( 'widgets_init', 'gwt_wp_widgets_init' );
@@ -255,7 +319,8 @@ function gwt_wp_scripts() {
 	wp_enqueue_script( 'gwt_wp-navigation', get_template_directory_uri() . '/js/foundation.min.js', array(), '20130729', true );
 	wp_enqueue_script( 'gwt_wp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
-	wp_enqueue_script( 'gwt_wp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+  wp_enqueue_script( 'gwt_wp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'gwt_wp-theme', get_template_directory_uri() . '/js/theme.js', array(), '20140123', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -306,3 +371,4 @@ require get_template_directory() . '/inc/options.php';
  * Author URI: http://www.casabona.org
  */
 require get_template_directory() . '/inc/vendors/envato-flex-slider/envato-flex-slider.php';
+

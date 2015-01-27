@@ -31,20 +31,28 @@
 		  <?php govph_displayoptions( 'govph_headerimage' ); ?>
 	  }
 	  
-  	h1.logo a {
-		<?php govph_displayoptions( 'govph_logo' ); ?>
-		<?php govph_displayoptions( 'govph_logo_position' ); ?>
+	  	h1.logo a {
+			<?php govph_displayoptions( 'govph_logo' ); ?>
+			<?php govph_displayoptions( 'govph_logo_position' ); ?>
+			}
+		
+		div.container-banner {
+			<?php govph_displayoptions( 'govph_slidercolor' ); ?>
+	    	<?php govph_displayoptions( 'govph_sliderimage' ); ?>
 		}
-	
-	div.container-banner {
-		<?php govph_displayoptions( 'govph_slidercolor' ); ?>
-    	<?php govph_displayoptions( 'govph_sliderimage' ); ?>
-	}
 	
 	</style>
 </head>
 
 <body <?php body_class(); ?>>
+
+<!-- #accessibiility-links -->
+<div id="accessibility-links">
+	<ul>
+		<li><a href="<?php govph_displayoptions('govph_acc_link_main_content'); ?>" accesskey="R">Skip to Main Content</a></li>
+		<li><a href="<?php govph_displayoptions('govph_acc_link_sitemap'); ?>" accesskey="M">Sitemap</a></li>
+	</ul>
+</div>
 
 <!-- topbar navigation -->	
 <div id="main-nav">
@@ -57,20 +65,22 @@
 						<li class="name">
 							<h1><a href="http://www.gov.ph">GOVPH</a></h1>
 						</li>
-						<li class="toggle-topbar menu-icon"><a href="#"></li>
+						<li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
 					</ul>
 					
 					<section class="top-bar-section">
 						
 						<!-- right navigation -->
 						<ul class="right">
-							<?php wp_nav_menu( array('theme_location'  => 'topbar_right', 'items_wrap' => '<li class="divider"></li>%3$s', 'container' => false, 'walker' => new Topbar_Nav_Menu() )); ?>
-			                <li class="search"><?php get_search_form(); ?></li>
+			                <?php if(govph_displayoptions( 'govph_disable_search' )): ?>
+			                	<li class="search right"><?php get_search_form(); ?></li>
+			            	<?php endif ?>
+							<?php wp_nav_menu( array('theme_location'  => 'topbar_right', 'items_wrap' => '%3$s', 'container' => false, 'walker' => new Topbar_Nav_Menu() )); ?>
 						</ul>
 					
 						<!-- left navigation -->
 		                <ul class="left">
-		                  <?php wp_nav_menu( array('theme_location'  => 'topbar_left', 'items_wrap' => '<li class="divider"></li>%3$s', 'container' => false, 'walker' => new Topbar_Nav_Menu() )); ?> 
+		                  <?php wp_nav_menu( array('theme_location'  => 'topbar_left', 'items_wrap' => '%3$s', 'container' => false, 'walker' => new Topbar_Nav_Menu() )); ?> 
 		                </ul>
 					
 					</section>
@@ -88,18 +98,18 @@
   // if both content are available
   if(is_active_sidebar('ear-content-1') && is_active_sidebar('ear-content-2')){
     $name_slogan_class = ' large-6';
-    $ear_content_class = ' large-3';
-    $ear_content_2_class = ' large-3';
+    $ear_content_class = 'large-3';
+    $ear_content_2_class = 'large-3';
   }
   elseif(is_active_sidebar('ear-content-1') && !is_active_sidebar('ear-content-2')){
-    $name_slogan_class = ' large-9';
-    $ear_content_class = ' large-3';
+    $name_slogan_class = 'large-9';
+    $ear_content_class = 'large-3';
     //$ear_content_2_class = '';
   }
   elseif(!is_active_sidebar('ear-content-1') && is_active_sidebar('ear-content-2')){
-    $name_slogan_class = ' large-9';
+    $name_slogan_class = 'large-9';
     //$ear_content_class = '';
-    $ear_content_2_class = ' large-3';
+    $ear_content_2_class = 'large-3';
   }
 ?>
 
