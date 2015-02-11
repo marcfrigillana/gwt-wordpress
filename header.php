@@ -49,8 +49,28 @@
 <!-- #accessibiility-links -->
 <div id="accessibility-links">
   <ul>
-    <li><a href="<?php govph_displayoptions('govph_acc_link_main_content'); ?>" accesskey="R">Skip to Main Content</a></li>
-    <li><a href="<?php govph_displayoptions('govph_acc_link_sitemap'); ?>" accesskey="M">Sitemap</a></li>
+    <li><a href="<?php echo govph_displayoptions('govph_acc_link_main_content'); ?>" accesskey="R">Skip to Main Content</a></li>
+    <li><a href="<?php echo govph_displayoptions('govph_acc_link_sitemap'); ?>" accesskey="M">Sitemap</a></li>
+  </ul>
+</div>
+
+<div id="accessibility-shortcuts">
+  <ul>
+    <?php if($govph_acc_link_statement = govph_displayoptions('govph_acc_link_statement')): ?>
+      <li><a href="<?php echo $govph_acc_link_statement; ?>" accesskey="0">Accessibility Statement</a></li>
+    <?php endif; ?>
+    <?php if($govph_acc_link_home = govph_displayoptions('govph_acc_link_home')): ?>
+    <li><a href="<?php echo $govph_acc_link_home; ?>" accesskey="1">Home</a></li>
+    <?php endif; ?>
+    <?php if($govph_acc_link_contact = govph_displayoptions('govph_acc_link_contact')): ?>
+    <li><a href="<?php echo $govph_acc_link_contact; ?>" accesskey="c">Contacts</a></li>
+    <?php endif; ?>
+    <?php if($govph_acc_link_feedback = govph_displayoptions('govph_acc_link_feedback')): ?>
+    <li><a href="<?php echo $govph_acc_link_feedback; ?>" accesskey="k">Feedback</a></li>
+    <?php endif; ?>
+    <?php if($govph_acc_link_search = govph_displayoptions('govph_acc_link_search')): ?>
+    <li><a href="<?php echo $govph_acc_link_search; ?>" accesskey="s">Search</a></li>
+    <?php endif; ?>
   </ul>
 </div>
 

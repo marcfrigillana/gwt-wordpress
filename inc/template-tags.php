@@ -76,7 +76,7 @@ function gwt_wp_comment( $comment, $args, $depth ) {
 	<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
 		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 			<footer class="comment-meta">
-				<div class="comment-author vcard">
+				<div class="comment-author">
 					<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
 					<?php printf( __( '%s <span class="says">says:</span>', 'gwt_wp' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 				</div><!-- .comment-author -->
@@ -188,7 +188,7 @@ function gwt_wp_posted_on() {
 			esc_attr( get_the_time() ),
 			$time_string
 		),
-		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
+		sprintf( '<span class="author"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_attr( sprintf( __( 'View all posts by %s', 'gwt_wp' ), get_the_author() ) ),
 			esc_html( get_the_author() )

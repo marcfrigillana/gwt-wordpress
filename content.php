@@ -40,8 +40,8 @@
 		<footer class="entry-meta">
 		<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
 			
-			<!-- categories (commented out) -->
 			<?php
+			//<!-- categories (commented out) -->
 				/* translators: used between list items, there is a space after the comma */
 				/* $categories_list = get_the_category_list( __( ', ', 'gwt_wp' ) );
 				if ( $categories_list && gwt_wp_categorized_blog() ) :
@@ -51,8 +51,8 @@
 				</span>
 			<?php endif; */ ?>
 			
-			<!-- tags (commented out) -->
 			<?php
+			//<!-- tags (commented out) -->
 				/* translators: used between list items, there is a space after the comma */
 				/* $tags_list = get_the_tag_list( '', __( ', ', 'gwt_wp' ) );
 				if ( $tags_list ) :

@@ -450,404 +450,420 @@ function govph_displayoptions( $options ){
   $option = get_option('govph_options');
 
   switch ($options) {
-      case 'govph_auxmenu':
-          if ($option['govph_auxmenu'] === 'true') {
-            ?>
-          <nav id="auxiliary" class="container-topbar">
-            <div class="row">
-                <div class="small-12 large-12 columns toplayer">
-                  <div class="aux-nav-btn-container hide-for-medium-up">
-                    <button id="aux-nav-btn" data-dropdown="aux-nav">Auxiliary Menu</button>
-                  </div>
-                    <nav id="aux-nav" class="nomargin show-for-medium-up" data-dropdown-content>
-                      <section class="top-bar-section">
-                          <ul>
-                            <?php wp_nav_menu( array('theme_location'  => 'aux_nav', 'items_wrap' => '%3$s', 'container' => false, 'walker' => new Topbar_Nav_Menu() )); ?>
-                          </ul>
-                      </section>
-                    </nav>
-                </div>
+    case 'govph_auxmenu':
+      if ($option['govph_auxmenu'] === 'true') {
+        ?>
+      <nav id="auxiliary" class="container-topbar">
+        <div class="row">
+            <div class="small-12 large-12 columns toplayer">
+              <div class="aux-nav-btn-container hide-for-medium-up">
+                <button id="aux-nav-btn" data-dropdown="aux-nav">Auxiliary Menu</button>
+              </div>
+                <nav id="aux-nav" class="nomargin show-for-medium-up" data-dropdown-content>
+                  <section class="top-bar-section">
+                    <ul>
+                      <?php wp_nav_menu( array('theme_location'  => 'aux_nav', 'items_wrap' => '%3$s', 'container' => false, 'walker' => new Topbar_Nav_Menu() )); ?>
+                    </ul>
+                  </section>
+                </nav>
             </div>
-          </nav>
-          <?php
-          }
-          break;
-      case 'govph_logo_enable':
-          return !empty($option['govph_logo_enable'] && $option['govph_logo_enable'] == 1);
-          break;
-      case 'govph_header_font_color':
-          $header_font_color = (!empty($option['govph_header_font_color']) ? 'color:'.$option['govph_header_font_color'].';' : '');
-          echo $header_font_color;
-          break;
-      case 'govph_logo':
-          // echo '<pre>'.print_r($option, 1).'</pre>';
-          $logo_image = (!empty($option['govph_logo']) ? $option['govph_logo'] : get_template_directory_uri().'/images/logo-masthead-large.png');
-          $addLogo = ($option['govph_logo_enable'] == 1) ? '<img src="'.$logo_image.'" />' : bloginfo( 'name' );
-          echo $addLogo;
-          break;
-      case 'govph_logo_position':
-          $logoPos = (!empty($option['govph_logo_position']) ? 'background-position:top '.$option['govph_logo_position'].';' : '');
-          echo $logoPos;
-          break;
-      case 'govph_headercolor':
-          $headerBg = (!empty($option['govph_headercolor']) ? 'background-color:'.$option['govph_headercolor'].';' : '');
-          echo $headerBg;
-          break;
-      case 'govph_headerimage':
-          $headerImg = (!empty($option['govph_headerimage']) ? 'background-image:url("'.$option['govph_headerimage'].'");' : '');
-          echo $headerImg;
-          break;
-      case 'govph_slidercolor':
-          $sliderBg = (!empty($option['govph_slidercolor']) ? 'background-color:'.$option['govph_slidercolor'].';' : '');
-          echo $sliderBg;
-          break;
-      case 'govph_sliderimage':
-          $sliderImg = (!empty($option['govph_sliderimage']) ? 'background-image:url("'.$option['govph_sliderimage'].'");background-size:cover;' : '');
-          echo $sliderImg;
-          break;
-      case 'govph_anchorcolor':
-          $anchorColor = (!empty($option['govph_anchorcolor']) ? 'color:'.$option['govph_anchorcolor'].' !important;' : '');
-          echo $anchorColor;
-          break;
-      case 'govph_disable_search':
-          return ($option['govph_disable_search'] ? true : false);
-          break;
-      // TODO: disable option for widget position, make it dynamic, displays sidebars when atleast one widget is active
-      case 'govph_content_position':
-          $content_class = 'large-12 medium-12 ';
-          if(is_active_sidebar('left-sidebar')){
-            $content_class = 'large-8 medium-8 large-push-4 medium-push-4  ';
-            if(is_active_sidebar('right-sidebar')){
-              $content_class = 'large-6 medium-6 large-push-3 medium-push-3  ';
+        </div>
+      </nav>
+      <?php
+      }
+      break;
+    case 'govph_logo_enable':
+      return !empty($option['govph_logo_enable'] && $option['govph_logo_enable'] == 1);
+      break;
+    case 'govph_header_font_color':
+      $header_font_color = (!empty($option['govph_header_font_color']) ? 'color:'.$option['govph_header_font_color'].';' : '');
+      echo $header_font_color;
+      break;
+    case 'govph_logo':
+      // echo '<pre>'.print_r($option, 1).'</pre>';
+      $logo_image = (!empty($option['govph_logo']) ? $option['govph_logo'] : get_template_directory_uri().'/images/logo-masthead-large.png');
+      $addLogo = ($option['govph_logo_enable'] == 1) ? '<img src="'.$logo_image.'" />' : bloginfo( 'name' );
+      echo $addLogo;
+      break;
+    case 'govph_logo_position':
+      $logoPos = (!empty($option['govph_logo_position']) ? 'background-position:top '.$option['govph_logo_position'].';' : '');
+      echo $logoPos;
+      break;
+    case 'govph_headercolor':
+      $headerBg = (!empty($option['govph_headercolor']) ? 'background-color:'.$option['govph_headercolor'].';' : '');
+      echo $headerBg;
+      break;
+    case 'govph_headerimage':
+      $headerImg = (!empty($option['govph_headerimage']) ? 'background-image:url("'.$option['govph_headerimage'].'");' : '');
+      echo $headerImg;
+      break;
+    case 'govph_slidercolor':
+      $sliderBg = (!empty($option['govph_slidercolor']) ? 'background-color:'.$option['govph_slidercolor'].';' : '');
+      echo $sliderBg;
+      break;
+    case 'govph_sliderimage':
+      $sliderImg = (!empty($option['govph_sliderimage']) ? 'background-image:url("'.$option['govph_sliderimage'].'");background-size:cover;' : '');
+      echo $sliderImg;
+      break;
+    case 'govph_anchorcolor':
+      $anchorColor = (!empty($option['govph_anchorcolor']) ? 'color:'.$option['govph_anchorcolor'].' !important;' : '');
+      echo $anchorColor;
+      break;
+    case 'govph_disable_search':
+      return ($option['govph_disable_search'] ? true : false);
+      break;
+    // TODO: disable option for widget position, make it dynamic, displays sidebars when atleast one widget is active
+    case 'govph_content_position':
+      $content_class = 'large-12 medium-12 ';
+      if(is_active_sidebar('left-sidebar')){
+        $content_class = 'large-8 medium-8 large-push-4 medium-push-4  ';
+        if(is_active_sidebar('right-sidebar')){
+          $content_class = 'large-6 medium-6 large-push-3 medium-push-3  ';
+        }
+      }
+      elseif(is_active_sidebar('right-sidebar')){
+        $content_class = 'large-8 medium-8 ';
+      }
+      echo $content_class;
+      break;
+    case 'govph_sidebar_position_left':
+      $sidebar_class = '';
+      if(is_active_sidebar('left-sidebar')){
+        $sidebar_class = 'large-4 medium-4 large-pull-8 medium-pull-8 ';
+        if(is_active_sidebar('right-sidebar')){
+          $sidebar_class = 'large-3 medium-3 large-pull-6 medium-pull-6 ';
+        }
+      }
+      elseif(is_active_sidebar('right-sidebar')){
+        $sidebar_class = 'large-4 medium-4 large-pull-8 medium-pull-8 ';
+      }
+      echo $sidebar_class;
+      break;
+    case 'govph_sidebar_position_right':
+      $sidebar_class = '';
+      if(is_active_sidebar('left-sidebar')){
+        $sidebar_class = 'large-4 medium-4 ';
+        if(is_active_sidebar('right-sidebar')){
+          $sidebar_class = 'large-3 medium-3 ';
+        }
+      }
+      elseif(is_active_sidebar('right-sidebar')){
+        $sidebar_class = 'large-4 medium-4 ';
+      }
+      echo $sidebar_class;
+      break;
+    case 'govph_sidebar_left':
+      get_sidebar('left');
+      break;
+    case 'govph_sidebar_right':
+      get_sidebar('right');
+      break;
+    case 'govph_panel_top':
+      get_sidebar('panel-top');
+      break;
+    case 'govph_position_panel_top_1':
+    case 'govph_position_panel_top_2':
+    case 'govph_position_panel_top_3':
+    case 'govph_position_panel_top_4':
+      $panel_top_1 = '';
+      $panel_top_2 = '';
+      $panel_top_3 = '';
+      $panel_top_4 = '';
+      if(is_active_sidebar('panel-top-1')){
+        $panel_top_1 = 'large-12 ';
+        if(is_active_sidebar('panel-top-2')){
+          $panel_top_1 = 'large-6 ';
+          $panel_top_2 = 'large-6 ';
+          if(is_active_sidebar('panel-top-3')){
+            $panel_top_1 = 'large-6 ';
+            $panel_top_2 = 'large-3 ';
+            $panel_top_3 = 'large-3 ';
+            if(is_active_sidebar('panel-top-4')){
+              $panel_top_1 = 'large-3 ';
+              $panel_top_2 = 'large-3 ';
+              $panel_top_3 = 'large-3 ';
+              $panel_top_4 = 'large-3 ';
             }
           }
-          elseif(is_active_sidebar('right-sidebar')){
-            $content_class = 'large-8 medium-8 ';
-          }
-          echo $content_class;
-          break;
-      case 'govph_sidebar_position_left':
-          $sidebar_class = '';
-          if(is_active_sidebar('left-sidebar')){
-            $sidebar_class = 'large-4 medium-4 large-pull-8 medium-pull-8 ';
-            if(is_active_sidebar('right-sidebar')){
-              $sidebar_class = 'large-3 medium-3 large-pull-6 medium-pull-6 ';
+          else{
+            $panel_top_3 = '';
+            if(is_active_sidebar('panel-top-4')){
+              $panel_top_1 = 'large-4 ';
+              $panel_top_2 = 'large-4 ';
+              $panel_top_4 = 'large-4 ';
             }
           }
-          elseif(is_active_sidebar('right-sidebar')){
-            $sidebar_class = 'large-4 medium-4 large-pull-8 medium-pull-8 ';
-          }
-          echo $sidebar_class;
-          break;
-      case 'govph_sidebar_position_right':
-          $sidebar_class = '';
-          if(is_active_sidebar('left-sidebar')){
-            $sidebar_class = 'large-4 medium-4 ';
-            if(is_active_sidebar('right-sidebar')){
-              $sidebar_class = 'large-3 medium-3 ';
+        }
+        else{
+          $panel_top_2 = '';
+          if(is_active_sidebar('panel-top-3')){
+            $panel_top_1 = 'large-6 ';
+            $panel_top_3 = 'large-6 ';
+            if(is_active_sidebar('panel-top-4')){
+              $panel_top_1 = 'large-4 ';
+              $panel_top_3 = 'large-4 ';
+              $panel_top_4 = 'large-4 ';
             }
           }
-          elseif(is_active_sidebar('right-sidebar')){
-            $sidebar_class = 'large-4 medium-4 ';
+          else{
+            $panel_top_3 = '';
+            if(is_active_sidebar('panel-top-4')){
+              $panel_top_1 = 'large-6 ';
+              $panel_top_4 = 'large-6 ';
+            }
           }
-          echo $sidebar_class;
-          break;
-      case 'govph_sidebar_left':
+        }
+      }
+      else{
+        $panel_top_1 = '';
+        if(is_active_sidebar('panel-top-2')){
+          $panel_top_2 = 'large-12 ';
+          if(is_active_sidebar('panel-top-3')){
+            $panel_top_2 = 'large-6 ';
+            $panel_top_3 = 'large-6 ';
+            if(is_active_sidebar('panel-top-4')){
+              $panel_top_2 = 'large-3 ';
+              $panel_top_3 = 'large-3 ';
+              $panel_top_4 = 'large-6 ';
+            }
+          }
+          else{
+            $panel_top_3 = '';
+            if(is_active_sidebar('panel-top-4')){
+              $panel_top_2 = 'large-6 ';
+              $panel_top_4 = 'large-6 ';
+            }
+          }
+        }
+        else{
+          $panel_top_2 = '';
+          if(is_active_sidebar('panel-top-3')){
+            $panel_top_3 = 'large-12 ';
+            if(is_active_sidebar('panel-top-4')){
+              $panel_top_3 = 'large-6 ';
+              $panel_top_4 = 'large-6 ';
+            }
+          }
+          else{
+            $panel_top_3 = '';
+            if(is_active_sidebar('panel-top-4')){
+              $panel_top_4 = 'large-12 ';
+            }
+          }
+        }
+      }
+
+      if($options == 'govph_position_panel_top_1'){
+        echo $panel_top_1;
+      }
+      elseif($options == 'govph_position_panel_top_2'){
+        echo $panel_top_2;
+      }
+      elseif($options == 'govph_position_panel_top_3'){
+        echo $panel_top_3;
+      }
+      elseif($options == 'govph_position_panel_top_4'){
+        echo $panel_top_4;
+      }
+      break;
+    case 'govph_panel_bottom':
+      get_sidebar('panel-bottom');
+      break;
+    case 'govph_position_panel_bottom_1':
+    case 'govph_position_panel_bottom_2':
+    case 'govph_position_panel_bottom_3':
+    case 'govph_position_panel_bottom_4':
+      $panel_top_1 = '';
+      $panel_top_2 = '';
+      $panel_top_3 = '';
+      $panel_top_4 = '';
+      if(is_active_sidebar('panel-bottom-1')){
+        $panel_top_1 = 'large-12 ';
+        if(is_active_sidebar('panel-bottom-2')){
+          $panel_top_1 = 'large-6 ';
+          $panel_top_2 = 'large-6 ';
+          if(is_active_sidebar('panel-bottom-3')){
+            $panel_top_1 = 'large-6 ';
+            $panel_top_2 = 'large-3 ';
+            $panel_top_3 = 'large-3 ';
+            if(is_active_sidebar('panel-bottom-4')){
+              $panel_top_1 = 'large-3 ';
+              $panel_top_2 = 'large-3 ';
+              $panel_top_3 = 'large-3 ';
+              $panel_top_4 = 'large-3 ';
+            }
+          }
+          else{
+            $panel_top_3 = '';
+            if(is_active_sidebar('panel-bottom-4')){
+              $panel_top_1 = 'large-4 ';
+              $panel_top_2 = 'large-4 ';
+              $panel_top_4 = 'large-4 ';
+            }
+          }
+        }
+        else{
+          $panel_top_2 = '';
+          if(is_active_sidebar('panel-bottom-3')){
+            $panel_top_1 = 'large-6 ';
+            $panel_top_3 = 'large-6 ';
+            if(is_active_sidebar('panel-bottom-4')){
+              $panel_top_1 = 'large-4 ';
+              $panel_top_3 = 'large-4 ';
+              $panel_top_4 = 'large-4 ';
+            }
+          }
+          else{
+            $panel_top_3 = '';
+            if(is_active_sidebar('panel-bottom-4')){
+              $panel_top_1 = 'large-6 ';
+              $panel_top_4 = 'large-6 ';
+            }
+          }
+        }
+      }
+      else{
+        $panel_top_1 = '';
+        if(is_active_sidebar('panel-bottom-2')){
+          $panel_top_2 = 'large-12 ';
+          if(is_active_sidebar('panel-bottom-3')){
+            $panel_top_2 = 'large-6 ';
+            $panel_top_3 = 'large-6 ';
+            if(is_active_sidebar('panel-bottom-4')){
+              $panel_top_2 = 'large-3 ';
+              $panel_top_3 = 'large-3 ';
+              $panel_top_4 = 'large-6 ';
+            }
+          }
+          else{
+            $panel_top_3 = '';
+            if(is_active_sidebar('panel-bottom-4')){
+              $panel_top_2 = 'large-6 ';
+              $panel_top_4 = 'large-6 ';
+            }
+          }
+        }
+        else{
+          $panel_top_2 = '';
+          if(is_active_sidebar('panel-bottom-3')){
+            $panel_top_3 = 'large-12 ';
+            if(is_active_sidebar('panel-bottom-4')){
+              $panel_top_3 = 'large-6 ';
+              $panel_top_4 = 'large-6 ';
+            }
+          }
+          else{
+            $panel_top_3 = '';
+            if(is_active_sidebar('panel-bottom-4')){
+              $panel_top_4 = 'large-12 ';
+            }
+          }
+        }
+      }
+
+      if($options == 'govph_position_panel_bottom_1'){
+        echo $panel_top_1;
+      }
+      elseif($options == 'govph_position_panel_bottom_2'){
+        echo $panel_top_2;
+      }
+      elseif($options == 'govph_position_panel_bottom_3'){
+        echo $panel_top_3;
+      }
+      elseif($options == 'govph_position_panel_bottom_4'){
+        echo $panel_top_4;
+      }
+      break;
+   /* case 'govph_sidebar_position':
+        if ($option['govph_sidebar_position'] === 'both') {
+          echo 'large-3 ';
+        } else {
+          echo 'large-4 ';
+        }
+        break;
+    case 'govph_sidebar_left':
+        if ($option['govph_sidebar_position'] === 'left' || $option['govph_sidebar_position'] === 'both') {
           get_sidebar('left');
-          break;
-      case 'govph_sidebar_right':
+        }
+        break;
+    case 'govph_sidebar_right':
+        if ($option['govph_sidebar_position'] === 'right' || $option['govph_sidebar_position'] === 'both') {
           get_sidebar('right');
-          break;
-      case 'govph_panel_top':
-          get_sidebar('panel-top');
-          break;
-      case 'govph_position_panel_top_1':
-      case 'govph_position_panel_top_2':
-      case 'govph_position_panel_top_3':
-      case 'govph_position_panel_top_4':
-          $panel_top_1 = '';
-          $panel_top_2 = '';
-          $panel_top_3 = '';
-          $panel_top_4 = '';
-          if(is_active_sidebar('panel-top-1')){
-            $panel_top_1 = 'large-12 ';
-            if(is_active_sidebar('panel-top-2')){
-              $panel_top_1 = 'large-6 ';
-              $panel_top_2 = 'large-6 ';
-              if(is_active_sidebar('panel-top-3')){
-                $panel_top_1 = 'large-6 ';
-                $panel_top_2 = 'large-3 ';
-                $panel_top_3 = 'large-3 ';
-                if(is_active_sidebar('panel-top-4')){
-                  $panel_top_1 = 'large-3 ';
-                  $panel_top_2 = 'large-3 ';
-                  $panel_top_3 = 'large-3 ';
-                  $panel_top_4 = 'large-3 ';
-                }
-              }
-              else{
-                $panel_top_3 = '';
-                if(is_active_sidebar('panel-top-4')){
-                  $panel_top_1 = 'large-4 ';
-                  $panel_top_2 = 'large-4 ';
-                  $panel_top_4 = 'large-4 ';
-                }
-              }
-            }
-            else{
-              $panel_top_2 = '';
-              if(is_active_sidebar('panel-top-3')){
-                $panel_top_1 = 'large-6 ';
-                $panel_top_3 = 'large-6 ';
-                if(is_active_sidebar('panel-top-4')){
-                  $panel_top_1 = 'large-4 ';
-                  $panel_top_3 = 'large-4 ';
-                  $panel_top_4 = 'large-4 ';
-                }
-              }
-              else{
-                $panel_top_3 = '';
-                if(is_active_sidebar('panel-top-4')){
-                  $panel_top_1 = 'large-6 ';
-                  $panel_top_4 = 'large-6 ';
-                }
-              }
-            }
-          }
-          else{
-            $panel_top_1 = '';
-            if(is_active_sidebar('panel-top-2')){
-              $panel_top_2 = 'large-12 ';
-              if(is_active_sidebar('panel-top-3')){
-                $panel_top_2 = 'large-6 ';
-                $panel_top_3 = 'large-6 ';
-                if(is_active_sidebar('panel-top-4')){
-                  $panel_top_2 = 'large-3 ';
-                  $panel_top_3 = 'large-3 ';
-                  $panel_top_4 = 'large-6 ';
-                }
-              }
-              else{
-                $panel_top_3 = '';
-                if(is_active_sidebar('panel-top-4')){
-                  $panel_top_2 = 'large-6 ';
-                  $panel_top_4 = 'large-6 ';
-                }
-              }
-            }
-            else{
-              $panel_top_2 = '';
-              if(is_active_sidebar('panel-top-3')){
-                $panel_top_3 = 'large-12 ';
-                if(is_active_sidebar('panel-top-4')){
-                  $panel_top_3 = 'large-6 ';
-                  $panel_top_4 = 'large-6 ';
-                }
-              }
-              else{
-                $panel_top_3 = '';
-                if(is_active_sidebar('panel-top-4')){
-                  $panel_top_4 = 'large-12 ';
-                }
-              }
-            }
-          }
+        }
+        break;
+    case 'govph_content_position':
+        if ($option['govph_sidebar_position'] === 'both') {
+          echo 'large-6 ';
+        } elseif ($option['govph_sidebar_position'] === 'fullwidth') {
+          echo 'large-12 ';
+        } else {
+          echo 'large-8 ';
+        }
+        break;*/
+    case 'govph_accessibility_links_front':
+      $links = '<ul>';
+      $links .= '<li><a href="">Skip to Main Content</a></li>';
+      $links .= '</ul>';
+      break;
+    case 'govph_slider_start':
+      if ($option['govph_slider_fullwidth'] != 'true') {
+        echo '<div class="row"><div class="large-12 columns">';
+      }
+      break;
+    case 'govph_slider_end':
+      if ($option['govph_slider_fullwidth'] != 'true') {
+        echo '</div></div>';
+      }
+      break;
 
-          if($options == 'govph_position_panel_top_1'){
-            echo $panel_top_1;
-          }
-          elseif($options == 'govph_position_panel_top_2'){
-            echo $panel_top_2;
-          }
-          elseif($options == 'govph_position_panel_top_3'){
-            echo $panel_top_3;
-          }
-          elseif($options == 'govph_position_panel_top_4'){
-            echo $panel_top_4;
-          }
-          break;
-      case 'govph_panel_bottom':
-          get_sidebar('panel-bottom');
-          break;
-      case 'govph_position_panel_bottom_1':
-      case 'govph_position_panel_bottom_2':
-      case 'govph_position_panel_bottom_3':
-      case 'govph_position_panel_bottom_4':
-          $panel_top_1 = '';
-          $panel_top_2 = '';
-          $panel_top_3 = '';
-          $panel_top_4 = '';
-          if(is_active_sidebar('panel-bottom-1')){
-            $panel_top_1 = 'large-12 ';
-            if(is_active_sidebar('panel-bottom-2')){
-              $panel_top_1 = 'large-6 ';
-              $panel_top_2 = 'large-6 ';
-              if(is_active_sidebar('panel-bottom-3')){
-                $panel_top_1 = 'large-6 ';
-                $panel_top_2 = 'large-3 ';
-                $panel_top_3 = 'large-3 ';
-                if(is_active_sidebar('panel-bottom-4')){
-                  $panel_top_1 = 'large-3 ';
-                  $panel_top_2 = 'large-3 ';
-                  $panel_top_3 = 'large-3 ';
-                  $panel_top_4 = 'large-3 ';
-                }
-              }
-              else{
-                $panel_top_3 = '';
-                if(is_active_sidebar('panel-bottom-4')){
-                  $panel_top_1 = 'large-4 ';
-                  $panel_top_2 = 'large-4 ';
-                  $panel_top_4 = 'large-4 ';
-                }
-              }
-            }
-            else{
-              $panel_top_2 = '';
-              if(is_active_sidebar('panel-bottom-3')){
-                $panel_top_1 = 'large-6 ';
-                $panel_top_3 = 'large-6 ';
-                if(is_active_sidebar('panel-bottom-4')){
-                  $panel_top_1 = 'large-4 ';
-                  $panel_top_3 = 'large-4 ';
-                  $panel_top_4 = 'large-4 ';
-                }
-              }
-              else{
-                $panel_top_3 = '';
-                if(is_active_sidebar('panel-bottom-4')){
-                  $panel_top_1 = 'large-6 ';
-                  $panel_top_4 = 'large-6 ';
-                }
-              }
-            }
-          }
-          else{
-            $panel_top_1 = '';
-            if(is_active_sidebar('panel-bottom-2')){
-              $panel_top_2 = 'large-12 ';
-              if(is_active_sidebar('panel-bottom-3')){
-                $panel_top_2 = 'large-6 ';
-                $panel_top_3 = 'large-6 ';
-                if(is_active_sidebar('panel-bottom-4')){
-                  $panel_top_2 = 'large-3 ';
-                  $panel_top_3 = 'large-3 ';
-                  $panel_top_4 = 'large-6 ';
-                }
-              }
-              else{
-                $panel_top_3 = '';
-                if(is_active_sidebar('panel-bottom-4')){
-                  $panel_top_2 = 'large-6 ';
-                  $panel_top_4 = 'large-6 ';
-                }
-              }
-            }
-            else{
-              $panel_top_2 = '';
-              if(is_active_sidebar('panel-bottom-3')){
-                $panel_top_3 = 'large-12 ';
-                if(is_active_sidebar('panel-bottom-4')){
-                  $panel_top_3 = 'large-6 ';
-                  $panel_top_4 = 'large-6 ';
-                }
-              }
-              else{
-                $panel_top_3 = '';
-                if(is_active_sidebar('panel-bottom-4')){
-                  $panel_top_4 = 'large-12 ';
-                }
-              }
-            }
-          }
+    case 'govph_acc_link_statement':
+      if(!empty($option['govph_acc_link_statement'])){
+        $value = '';
+        $value .= get_site_url().'/'; 
+        $value .= $option['govph_acc_link_statement'];
+        return $value;
+      }
+      break;
+    case 'govph_acc_link_contact':
+      if(!empty($option['govph_acc_link_contact'])){
+        $value = '';
+        $value .= get_site_url().'/'; 
+        $value .= $option['govph_acc_link_contact'];
+        return $value;
+      }
+      break;
+    case 'govph_acc_link_feedback':
+      if(!empty($option['govph_acc_link_statement'])){
+        $value = '';
+        $value .= get_site_url().'/'; 
+        $value .= $option['govph_acc_link_feedback'];
+        return $value;
+      }
+      break;
+    case 'govph_acc_link_search':
+      if(!empty($option['govph_acc_link_search'])){
+        $value = '';
+        $value .= get_site_url().'/'; 
+        $value = $option['govph_acc_link_search'];
+        return $value;
+      }
+      break;
 
-          if($options == 'govph_position_panel_bottom_1'){
-            echo $panel_top_1;
-          }
-          elseif($options == 'govph_position_panel_bottom_2'){
-            echo $panel_top_2;
-          }
-          elseif($options == 'govph_position_panel_bottom_3'){
-            echo $panel_top_3;
-          }
-          elseif($options == 'govph_position_panel_bottom_4'){
-            echo $panel_top_4;
-          }
-          break;
-     /* case 'govph_sidebar_position':
-          if ($option['govph_sidebar_position'] === 'both') {
-            echo 'large-3 ';
-          } else {
-            echo 'large-4 ';
-          }
-          break;
-      case 'govph_sidebar_left':
-          if ($option['govph_sidebar_position'] === 'left' || $option['govph_sidebar_position'] === 'both') {
-            get_sidebar('left');
-          }
-          break;
-      case 'govph_sidebar_right':
-          if ($option['govph_sidebar_position'] === 'right' || $option['govph_sidebar_position'] === 'both') {
-            get_sidebar('right');
-          }
-          break;
-      case 'govph_content_position':
-          if ($option['govph_sidebar_position'] === 'both') {
-            echo 'large-6 ';
-          } elseif ($option['govph_sidebar_position'] === 'fullwidth') {
-            echo 'large-12 ';
-          } else {
-            echo 'large-8 ';
-          }
-          break;*/
-      case 'govph_accessibility_links_front':
-          $links = '<ul>';
-          $links .= '<li><a href="">Skip to Main Content</a></li>';
-          $links .= '</ul>';
-          break;
-      case 'govph_slider_start':
-          if ($option['govph_slider_fullwidth'] != 'true') {
-            echo '<div class="row"><div class="large-12 columns">';
-          }
-          break;
-      case 'govph_slider_end':
-          if ($option['govph_slider_fullwidth'] != 'true') {
-            echo '</div></div>';
-          }
-          break;
-
-      case 'govph_acc_link_statement':
-          $value = isset($options['govph_acc_link_statement']) ? $options['govph_acc_link_statement'] : '';
-          $value .= get_site_url().'/'; 
-          echo $value;
-          break;
-      case 'govph_acc_link_home':
-          $value = isset($options['govph_acc_link_home']) ? $options['govph_acc_link_home'] : '';
-          $value .= get_site_url().'/'; 
-          echo $value;
-          break;
-      case 'govph_acc_link_main_content':
-          $value = isset($options['govph_acc_link_main_content']) ? $options['govph_acc_link_main_content'] : '#main-content';
-          echo $value;
-          break;
-      case 'govph_acc_link_contact':
-          $value = isset($options['govph_acc_link_contact']) ? $options['govph_acc_link_contact'] : '';
-          $value .= get_site_url().'/'; 
-          echo $value;
-          break;
-      case 'govph_acc_link_feedback':
-          $value = isset($options['govph_acc_link_feedback']) ? $options['govph_acc_link_feedback'] : '';
-          $value .= get_site_url().'/'; 
-          echo $value;
-          break;
-      case 'govph_acc_link_sitemap':
-          $value = isset($options['govph_acc_link_sitemap']) ? $options['govph_acc_link_sitemap'] : '#footer';
-          echo $value;
-          break;
-      case 'govph_acc_link_search':
-          $value = isset($options['govph_acc_link_search']) ? $options['govph_acc_link_search'] : '';
-          $value .= get_site_url().'/'; 
-          echo $value;
-          break;
+    case 'govph_acc_link_home':
+      $value = '';
+      $value .= get_site_url().'/'; 
+      $value .= isset($option['govph_acc_link_home']) ? $option['govph_acc_link_home'] : '';
+      return $value;
+      break;
+    case 'govph_acc_link_main_content':
+      $value = '';
+      $value .= isset($option['govph_acc_link_main_content']) ? $option['govph_acc_link_main_content'] : '#main-content';
+      return $value;
+      break;
+    case 'govph_acc_link_sitemap':
+      $value = '';
+      $value = isset($option['govph_acc_link_sitemap']) ? $option['govph_acc_link_sitemap'] : '#footer';
+      echo $value;
+      break;
   }
  }

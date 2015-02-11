@@ -17,25 +17,32 @@ h1, h2, h3, h4, h5, h6 {font-family: 'Roboto', sans-serif; font-weight: bold; te
 /* accessibility */
 #accessibility-links{
 }
-#accessibility-links ul{
+#accessibility-shortcuts{
+}
+#accessibility-links ul,
+#accessibility-shortcuts ul{
 	margin: 0;
 	overflow: hidden;
 	height: auto;
 	width: auto;
 }
-#accessibility-links ul li{
+#accessibility-links ul li,
+#accessibility-shortcuts ul li{
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
-#accessibility-links ul li a{
+#accessibility-links ul li a,
+#accessibility-shortcuts ul li a{
 	display: block;
 	padding: 0 20px;
 }
-#accessibility-links ul li a{
+#accessibility-links ul li a,
+#accessibility-shortcuts ul li a{
 	font-size: 0;
 }
-#accessibility-links ul li.access-focus a{
+#accessibility-links ul li.access-focus a,
+#accessibility-shortcuts ul li.access-focus a{
 	font-size: inherit;
 }
 
