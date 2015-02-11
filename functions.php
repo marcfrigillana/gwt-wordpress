@@ -156,6 +156,13 @@ class Topbar_Nav_Menu extends Walker_Nav_Menu
 endif; // gwt_wp_setup
 add_action( 'after_setup_theme', 'gwt_wp_setup' );
 
+// Replaces the excerpt "more" text by a link
+function new_excerpt_more($more) {
+       global $post;
+  return '<a class="moretag" href="'. get_permalink($post->ID) . '"> continue reading <span class="meta-nav">&rarr;</span></a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
 /**
  * Register widgetized area and update sidebar with default widgets
  */

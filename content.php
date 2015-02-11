@@ -25,7 +25,8 @@
 			</div>
 		<?php else : ?>
 			<div class="entry-content">
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'gwt_wp' ) ); ?>
+				<?php the_excerpt(); ?>
+				<?php //the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'gwt_wp' ) ); ?>
 				<?php
 					wp_link_pages( array(
 						'before' => '<div class="page-links">' . __( 'Pages:', 'gwt_wp' ),
