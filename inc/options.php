@@ -171,8 +171,9 @@ class GOVPH
 
     add_settings_field('govph_content_section', '<h3>Pubishing Options<h3>', array($this, 'govph_content_section'), __FILE__, 'govph_main_section');
     add_settings_field('govph_content_show_pub_date', 'Show Published Date', array($this, 'govph_content_show_pub_date'), __FILE__, 'govph_main_section');
-    add_settings_field('govph_content_show_pub_date_lbl', 'Publish date label', array($this, 'govph_content_show_pub_date_lbl'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_content_pub_date_lbl', 'Publish Date Label', array($this, 'govph_content_pub_date_lbl'), __FILE__, 'govph_main_section');
     add_settings_field('govph_content_show_author', 'Show Publisher', array($this, 'govph_content_show_author'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_content_pub_author_lbl', 'Publish Author Label', array($this, 'govph_content_pub_author_lbl'), __FILE__, 'govph_main_section');
   }
 
   public function govph_main_section_cb()
@@ -441,17 +442,17 @@ class GOVPH
   }
 
   public function govph_content_show_pub_date(){
-    $true = ($this->options['govph_content_show_pub_date'] == 'true' ? "checked" : "");
+    $true = ($this->options['govph_content_show_pub_date'] == 'true' || !empty($this->options['govph_content_show_pub_date']) ? "checked" : "");
   ?>
     <input type="checkbox" name="govph_options[govph_content_show_pub_date]" value="true" <?php echo $true ?>>
     <span class="description">Check to display the published date on posts</span>
   <?php
   }
 
-  public function govph_content_show_pub_date_lbl(){
-    $default = !empty($this->options['govph_content_show_pub_date_lbl']) ? $this->options['govph_content_show_pub_date_lbl'] : 'Posted on';
+  public function govph_content_pub_date_lbl(){
+    $default = !empty($this->options['govph_content_pub_date_lbl']) ? $this->options['govph_content_pub_date_lbl'] : 'Posted on';
   ?>
-    <input type="text" name="govph_options[govph_content_show_pub_date_lbl]" value="<?php echo $default ?>">
+    <input type="text" name="govph_options[govph_content_pub_date_lbl]" value="<?php echo $default ?>"><br/>
     <span class="description">Publish date display label</span>
   <?php
   }
@@ -461,6 +462,14 @@ class GOVPH
   ?>
     <input type="checkbox" name="govph_options[govph_content_show_author]" value="true" <?php echo $true ?>>
     <span class="description">Check to display the author</span>
+  <?php
+  }
+
+  public function govph_content_pub_author_lbl(){
+    $default = !empty($this->options['govph_content_pub_author_lbl']) ? $this->options['govph_content_pub_author_lbl'] : '&nbsp;by';
+  ?>
+    <input type="text" name="govph_options[govph_content_pub_author_lbl]" value="<?php echo $default ?>"><br/>
+    <span class="description">Publish author display label<br/><strong>Note: </strong>Add a space at the start to add spacing after the date</span>
   <?php
   }
 }
@@ -906,11 +915,14 @@ function govph_displayoptions( $options ){
     case 'govph_content_show_pub_date':
       return isset($option['govph_content_show_pub_date']) ? $option['govph_content_show_pub_date'] : '';
       break;
-    case 'govph_content_show_pub_date_lbl':
-      return isset($option['govph_content_show_pub_date_lbl']) ? $option['govph_content_show_pub_date_lbl'] : '';
+    case 'govph_content_pub_date_lbl':
+      return isset($option['govph_content_pub_date_lbl']) ? $option['govph_content_pub_date_lbl'] : '';
       break;
     case 'govph_content_show_author':
       return isset($option['govph_content_show_author']) ? $option['govph_content_show_author'] : '';
+      break;
+    case 'govph_content_pub_author_lbl':
+      return isset($option['govph_content_pub_author_lbl']) ? $option['govph_content_pub_author_lbl'] : '';
       break;
   }
  }
