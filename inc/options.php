@@ -146,6 +146,8 @@ class GOVPH
     register_setting('govph_options','govph_options');
     add_settings_section('govph_main_section', '', array($this, 'govph_main_section_cb'), __FILE__);
     add_settings_field('govph_auxmenu', 'Auxiliary Menu', array($this, 'govph_auxmenu'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_logo_enable', 'Enable Image Logo', array($this, 'govph_logo_enable'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_header_font_color', 'Header Font Color', array($this, 'govph_header_font_color'), __FILE__, 'govph_main_section');
     add_settings_field('govph_logo_position', 'Logo Position', array($this, 'govph_logo_position_setting'), __FILE__, 'govph_main_section');
     add_settings_field('govph_logo', 'Image Logo', array($this, 'govph_logo_setting'), __FILE__, 'govph_main_section');
     add_settings_field('govph_headercolor', 'Header Background Color', array($this, 'govph_header_color_setting'), __FILE__, 'govph_main_section');
@@ -231,10 +233,35 @@ class GOVPH
     }
   }
 
+  public function govph_logo_enable()
+  {
+  ?>
+    <?php
+      $logo_enable_option = isset($this->options['govph_logo_enable']) ? $this->options['govph_logo_enable'] : 1;
+      $enabled = ($logo_enable_option == 1 ? "checked" : "");
+      $disabled = ($logo_enable_option == 0 ? "checked" : "");
+    ?>
+    <label for="logo_enabled">
+      <input type="radio" name="govph_options[govph_logo_enable]" id="govph_logo_enable" value="1" <?php echo $enabled ?>> <label for="govph_logo_enable">Enable</label> <br>
+      <input type="radio" name="govph_options[govph_logo_enable]" id="govph_logo_disable" value="0" <?php echo $disabled ?>> <label for="govph_logo_disable">Disable</label>
+        <br /><p class="description">If enabled, the website name will be hidden and image logo will be shown (if exists).</p>
+    </label>
+
+  <?php
+  }
+
   public function govph_header_color_setting()
   {
     ?>
     <input name="govph_options[govph_headercolor]" type="text" value="<?php echo $this->options['govph_headercolor']; ?>" class="my-color-field" data-default-color="#142745" />
+    <?php
+  }
+
+  public function govph_header_font_color()
+  {
+    $header_font_color = !empty($this->options['govph_header_font_color']) ? $this->options['govph_header_font_color'] : '#000';
+    ?>
+    <input name="govph_options[govph_header_font_color]" type="text" value="<?php echo $header_font_color; ?>" class="my-color-field" data-default-color="#000" />
     <?php
   }
 
@@ -445,8 +472,17 @@ function govph_displayoptions( $options ){
           <?php
           }
           break;
+      case 'govph_logo_enable':
+          return !empty($option['govph_logo_enable'] && $option['govph_logo_enable'] == 1);
+          break;
+      case 'govph_header_font_color':
+          $header_font_color = (!empty($option['govph_header_font_color']) ? 'color:'.$option['govph_header_font_color'].';' : '');
+          echo $header_font_color;
+          break;
       case 'govph_logo':
-          $addLogo = (!empty($option['govph_logo']) ? 'background: url('.$option['govph_logo'].') no-repeat;' : '');
+          // echo '<pre>'.print_r($option, 1).'</pre>';
+          $logo_image = (!empty($option['govph_logo']) ? $option['govph_logo'] : get_template_directory_uri().'/images/logo-masthead-large.png');
+          $addLogo = ($option['govph_logo_enable'] == 1) ? '<img src="'.$logo_image.'" />' : bloginfo( 'name' );
           echo $addLogo;
           break;
       case 'govph_logo_position':
