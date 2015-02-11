@@ -165,16 +165,16 @@ function gwt_wp_widgets_init() {
 		'id'            => 'left-sidebar',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h4>',
+		'before_title'  => '<h5 class="widget-title">',
+		'after_title'   => '</h5>',
 	) );
   register_sidebar( array(
     'name'          => __( 'Right Sidebar', 'gwt_wp' ),
     'id'            => 'right-sidebar',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget'  => '</aside>',
-    'before_title'  => '<h4 class="widget-title">',
-    'after_title'   => '</h4>',
+    'before_title'  => '<h5 class="widget-title">',
+    'after_title'   => '</h5>',
   ) );
   register_sidebar( array(
     'name'          => __( 'Banner Section 1', 'gwt_wp' ),
