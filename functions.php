@@ -371,4 +371,3 @@ require get_template_directory() . '/inc/options.php';
  * Author URI: http://www.casabona.org
  */
 require get_template_directory() . '/inc/vendors/envato-flex-slider/envato-flex-slider.php';
-
