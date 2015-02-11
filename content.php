@@ -9,7 +9,7 @@
 		
 		<!-- entry-header -->
 		<header class="entry-header">
-			<h4 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+			<h5 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h5>
 			
 			<?php if ( 'post' == get_post_type() ) : ?>
 				<div class="entry-meta">
