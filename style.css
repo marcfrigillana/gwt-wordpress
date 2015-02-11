@@ -107,6 +107,9 @@ line-height: 58px;
 	/*banner 3/4 right panel*/
 	#banner #featured01 {padding: 1.25rem;}
 			#featured01 h3, #featured01 h4, #featured01 p {color: #666;}
+			.banner-pads{
+				padding: 30px 0;
+			}
 
 /*main-content*/
 #main-content {padding: 1.25rem 0;}

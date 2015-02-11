@@ -102,12 +102,12 @@
     $ear_content_2_class = 'large-3';
   }
   elseif(is_active_sidebar('ear-content-1') && !is_active_sidebar('ear-content-2')){
-    $name_slogan_class = 'large-9';
+    $name_slogan_class = ' large-9';
     $ear_content_class = 'large-3';
     //$ear_content_2_class = '';
   }
   elseif(!is_active_sidebar('ear-content-1') && is_active_sidebar('ear-content-2')){
-    $name_slogan_class = 'large-9';
+    $name_slogan_class = ' large-9';
     //$ear_content_class = '';
     $ear_content_2_class = 'large-3';
   }

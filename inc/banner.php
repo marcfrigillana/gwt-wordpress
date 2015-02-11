@@ -21,9 +21,16 @@
   }
   $banner_class .= ' show-for-medium-up';
 
-} ?>
+}
 
-<div class="container-banner">
+$container_class = '';
+if(!is_home()){
+  $container_class = ' banner-pads';
+}
+
+?>
+
+<div class="container-banner<?php echo $container_class; ?>">
     <?php govph_displayoptions( 'govph_slider_start' ); ?>
 
         <?php if (is_home()): ?>
