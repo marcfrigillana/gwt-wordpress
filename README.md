@@ -12,15 +12,7 @@ Use this as a a guide for creating your banner slider images:
 - Update the screenshot to gwt-6.0
 - set the top menu to fixed
 - Add feature image.
-- Responsive Logo Support
-- Accessibility shortcut bug fix
-- Create an option to remove published date
-- Create an option to remove author
-- Create an option to disable "box effect" on some widgets (to be check if feasible)
-- Create an option to automatically trim at specific characters/word for Post lists.
-- Breadcrumbs support
-- Add native widget
-- Remove box effect on Author
+- Breadcrumbs support, add native widget
 
 ###### CHANGE LOGS
 **03/18/2014**
@@ -32,3 +24,18 @@ Use this as a a guide for creating your banner slider images:
 - Revamped new design
 - Added new widget locations (New widget locations banner section 1, banner section 2, ear content 1, ear content 2 not yet usable)
 - For banner content, use featured image to upload images, use the content area for linking the image to an external page, use the title for captions
+
+**02/11/2014**
+- Smaller headings for Agency footer (use h3 tag)
+- Smaller headings for Content Post (use h5 tag)
+- Smaller headings for widgets
+- Banner title paddings
+- Remove box design on top and bottom panel, added custom class: box-mode
+- Smaller headings for Post Navigation (pagination) (use h4)
+- Automatic trim of character/word for Post lists
+- Responsive Logo Support
+- Accessibility shortcut bug fix
+- Create an option to automatically trim at specific characters/word for Post lists
+- Create an option to remove published date
+- Create an option to remove author
+- Remove box effect on Author
