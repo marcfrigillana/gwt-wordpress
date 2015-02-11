@@ -160,7 +160,7 @@ class GOVPH
     add_settings_field('govph_disable_search', 'Search Enable', array($this, 'govph_disable_search'), __FILE__, 'govph_main_section');
 
     // accessibility links
-    add_settings_field('govph_acc_link_section', 'Accessibility Links', array($this, 'govph_acc_link_section'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_acc_link_section', '<h3>Accessibility Links<h3>', array($this, 'govph_acc_link_section'), __FILE__, 'govph_main_section');
     add_settings_field('govph_acc_link_statement', 'Accessibility Statement<br/>(Combination + 0)', array($this, 'govph_acc_link_statement'), __FILE__, 'govph_main_section');
     add_settings_field('govph_acc_link_home', 'Home Page<br/>(Combination + 1)', array($this, 'govph_acc_link_home'), __FILE__, 'govph_main_section');
     add_settings_field('govph_acc_link_main_content', 'Main Content<br/>(Combination + R)', array($this, 'govph_acc_link_main_content'), __FILE__, 'govph_main_section');
@@ -169,6 +169,10 @@ class GOVPH
     add_settings_field('govph_acc_link_sitemap', 'Site Map<br/>(Combination + M)', array($this, 'govph_acc_link_sitemap'), __FILE__, 'govph_main_section');
     add_settings_field('govph_acc_link_search', 'Search<br/>(Combination + S)', array($this, 'govph_acc_link_search'), __FILE__, 'govph_main_section');
 
+    add_settings_field('govph_content_section', '<h3>Pubishing Options<h3>', array($this, 'govph_content_section'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_content_show_pub_date', 'Show Published Date', array($this, 'govph_content_show_pub_date'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_content_show_pub_date_lbl', 'Publish date label', array($this, 'govph_content_show_pub_date_lbl'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_content_show_author', 'Show Publisher', array($this, 'govph_content_show_author'), __FILE__, 'govph_main_section');
   }
 
   public function govph_main_section_cb()
@@ -348,6 +352,7 @@ class GOVPH
 
   public function govph_acc_link_section(){
     ?>
+    <hr/>
     <label>Shortcut Keys Combination Activation</label>
     <p>Combination keys used for each browser.</p>
     <ul>
@@ -424,6 +429,38 @@ class GOVPH
     <span class="description">Note: Create a new page by going to "Pages" and selecting "Add New." Title the page "Search," and choose "Search Page" on Page Attributes from the Template drop-down menu. Click "Publish."<br/>
       The link will be coming from the created page's permalink.
     </span>
+  <?php
+  }
+
+  /**
+   * publishing options
+   */
+  public function govph_content_section(){
+    ?>
+    <?php
+  }
+
+  public function govph_content_show_pub_date(){
+    $true = ($this->options['govph_content_show_pub_date'] == 'true' ? "checked" : "");
+  ?>
+    <input type="checkbox" name="govph_options[govph_content_show_pub_date]" value="true" <?php echo $true ?>>
+    <span class="description">Check to display the published date on posts</span>
+  <?php
+  }
+
+  public function govph_content_show_pub_date_lbl(){
+    $default = !empty($this->options['govph_content_show_pub_date_lbl']) ? $this->options['govph_content_show_pub_date_lbl'] : 'Posted on';
+  ?>
+    <input type="text" name="govph_options[govph_content_show_pub_date_lbl]" value="<?php echo $default ?>">
+    <span class="description">Publish date display label</span>
+  <?php
+  }
+
+  public function govph_content_show_author(){
+    $true = ($this->options['govph_content_show_author'] == 'true' ? "checked" : "");
+  ?>
+    <input type="checkbox" name="govph_options[govph_content_show_author]" value="true" <?php echo $true ?>>
+    <span class="description">Check to display the author</span>
   <?php
   }
 }
@@ -864,6 +901,16 @@ function govph_displayoptions( $options ){
       $value = '';
       $value = isset($option['govph_acc_link_sitemap']) ? $option['govph_acc_link_sitemap'] : '#footer';
       echo $value;
+      break;
+
+    case 'govph_content_show_pub_date':
+      return isset($option['govph_content_show_pub_date']) ? $option['govph_content_show_pub_date'] : '';
+      break;
+    case 'govph_content_show_pub_date_lbl':
+      return isset($option['govph_content_show_pub_date_lbl']) ? $option['govph_content_show_pub_date_lbl'] : '';
+      break;
+    case 'govph_content_show_author':
+      return isset($option['govph_content_show_author']) ? $option['govph_content_show_author'] : '';
       break;
   }
  }

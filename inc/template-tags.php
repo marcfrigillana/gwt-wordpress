@@ -182,7 +182,9 @@ function gwt_wp_posted_on() {
 		esc_html( get_the_date() )
 	);
 
-	printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'gwt_wp' ),
+	$default_publish_date = govph_displayoptions('govph_content_show_pub_date_lbl') ? govph_displayoptions('govph_content_show_pub_date_lbl') : 'Posted on';
+
+	printf( __( '<span class="posted-on">%3$s %1$s</span><span class="byline"> by %2$s</span>', 'gwt_wp' ),
 		sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),
@@ -192,7 +194,8 @@ function gwt_wp_posted_on() {
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_attr( sprintf( __( 'View all posts by %s', 'gwt_wp' ), get_the_author() ) ),
 			esc_html( get_the_author() )
-		)
+		),
+		$default_publish_date
 	);
 }
 endif;
