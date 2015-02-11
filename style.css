@@ -214,7 +214,10 @@ line-height: 58px;
 	span.edit-link {display: none;}
 	
 	/* sidebar */
-	#sidebar .widget {border-style: solid; border-width: 1px; padding: 1.25rem; background: #F2F2F2; margin-bottom: 1.25rem; border-color: #D8D8D8;}
+	#sidebar-left .widget,
+	#sidebar-right .widget,
+	#panel-bottom .box-mode{border-style: solid; border-width: 1px; padding: 1.25rem; background: #F2F2F2; margin-bottom: 1.25rem; border-color: #D8D8D8;}
+
 
 	#panel-top{
 		padding: 1.25rem 0 0;
