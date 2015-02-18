@@ -13,6 +13,7 @@ Use this as a a guide for creating your banner slider images:
 - set the top menu to fixed
 - Add feature image.
 - Breadcrumbs support, add native widget
+- Modify the slider into native widget
 
 ###### CHANGE LOGS
 **03/18/2014**
