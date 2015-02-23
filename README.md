@@ -14,6 +14,7 @@ Use this as a a guide for creating your banner slider images:
 - Add feature image.
 - Breadcrumbs support, add native widget
 - Modify the slider into native widget
+- add define borders for the menu
 
 ###### CHANGE LOGS
 **03/18/2014**
