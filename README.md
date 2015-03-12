@@ -8,6 +8,9 @@ Use this as a a guide for creating your banner slider images:
 - Caption input is on the title field
 - Linked article should be indicated in the content field
 
+###### Known bug
+- Fix notice error for wp_enqueue_script
+
 ###### Future updates
 - Update the screenshot to gwt-6.0
 - set the top menu to fixed
@@ -15,6 +18,7 @@ Use this as a a guide for creating your banner slider images:
 - Breadcrumbs support, add native widget
 - Modify the slider into native widget
 - add define borders for the menu
+- add an option to add automatic excerpt (read me) or manually add it
 
 ###### CHANGE LOGS
 **03/18/2014**
