@@ -19,6 +19,7 @@ Use this as a a guide for creating your banner slider images:
 - Modify the slider into native widget
 - add define borders for the menu
 - add an option to add automatic excerpt (read me) or manually add it
+- fix template name, version and screenshot
 
 ###### CHANGE LOGS
 **03/18/2014**
