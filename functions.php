@@ -314,6 +314,70 @@ function gwt_wp_widgets_init() {
 }
 add_action( 'widgets_init', 'gwt_wp_widgets_init' );
 
+// TODO: test each page types: category, single, page
+function gwt_wp_breadcrumb() {
+  global $post;
+  $option = get_option('govph_options');
+
+  if($option['govph_breadcrumbs_enable'] != 'true'){
+    return false;
+  }
+  $separator = $option['govph_breadcrumbs_separator'] ? $option['govph_breadcrumbs_separator'] : ' › ';
+  $separator_block = '<span class="separator">'.$separator.'</span>';
+
+  echo '<ul class="nav">';
+  if (!is_home()) {
+    if($option['govph_breadcrumbs_show_home'] == 'true'){
+      echo '<li><a href="';
+      echo get_option('home');
+      echo '">';
+      echo 'Home';
+      echo '</a>'.$separator_block.'</li>';
+    }
+  }
+
+  if (is_category() || is_single()) {
+    echo '<li>';
+    if(is_category()){
+      single_cat_title();
+    }
+
+    if (is_single()) {
+      the_category('</li><li> ');
+      echo $separator_block.'<li>';
+      // echo $separator_block.'</li><li>';
+      the_title();
+      echo '</li>';
+    }
+    echo '</li>';
+  } elseif (is_page()) {
+    if($post->post_parent){
+      $anc = get_post_ancestors( $post->ID );
+      $title = get_the_title();
+      foreach ( $anc as $ancestor ) {
+        $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a>'.$separator_block.'</li>';
+      }
+      echo $output;
+      echo '<strong title="'.$title.'"> '.$title.'</strong>';
+    } else {
+      echo '<li><strong> '.get_the_title().'</strong></li>';
+    }
+  }
+  
+  if (is_archive()) {
+    // if (is_tag()) {single_tag_title();}
+    if (is_day()) {echo "<li>"; the_time('F jS, Y'); echo '</li>';}
+    elseif (is_month()) {echo "<li>"; the_time('F Y'); echo '</li>';}
+    elseif (is_year()) {echo "<li>"; the_time('Y'); echo '</li>';}
+    elseif (is_author()) {echo "<li>Author Archive"; echo '</li>';}
+    elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "<li>Blog Archives"; echo '</li>';}
+    elseif (is_search()) {echo "<li>Search Results"; echo '</li>';}
+  }
+  echo '</ul>';
+  echo $output;
+  return true;
+}
+
 /**
  * Enqueue scripts and styles
  */
@@ -378,3 +442,6 @@ require get_template_directory() . '/inc/options.php';
  * Author URI: http://www.casabona.org
  */
 require get_template_directory() . '/inc/vendors/envato-flex-slider/envato-flex-slider.php';
+
+// make clickable content
+apply_filters('the_content','make_clickable');

@@ -15,7 +15,6 @@ Use this as a a guide for creating your banner slider images:
 - Update the screenshot to gwt-6.0
 - set the top menu to fixed
 - Add feature image.
-- Breadcrumbs support, add native widget
 - Modify the slider into native widget
 - add define borders for the menu
 - add an option to add automatic excerpt (read me) or manually add it
@@ -32,7 +31,7 @@ Use this as a a guide for creating your banner slider images:
 - Added new widget locations (New widget locations banner section 1, banner section 2, ear content 1, ear content 2 not yet usable)
 - For banner content, use featured image to upload images, use the content area for linking the image to an external page, use the title for captions
 
-**02/11/2014**
+**02/11/2015**
 - Smaller headings for Agency footer (use h3 tag)
 - Smaller headings for Content Post (use h5 tag)
 - Smaller headings for widgets
@@ -46,3 +45,6 @@ Use this as a a guide for creating your banner slider images:
 - Create an option to remove published date
 - Create an option to remove author
 - Remove box effect on Author
+
+**03/19/2015**
+- added breadcrumbs support

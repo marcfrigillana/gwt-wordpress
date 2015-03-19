@@ -158,6 +158,12 @@ class GOVPH
     add_settings_field('govph_anchorcolor', 'Anchor Color Settings', array($this, 'govph_anchor_color_setting'), __FILE__, 'govph_main_section');
     add_settings_field('govph_sidebar_position', 'Sidebar Settings', array($this, 'govph_sidebar_position'), __FILE__, 'govph_main_section');
     add_settings_field('govph_disable_search', 'Search Enable', array($this, 'govph_disable_search'), __FILE__, 'govph_main_section');
+    // add govph_breadcrumbs separator, and option
+    add_settings_field('govph_breadcrumbs_enable', 'Enable Breadcrumbs', array($this, 'govph_breadcrumbs_enable'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_breadcrumbs_separator', 'Breadcrumbs Separator', array($this, 'govph_breadcrumbs_separator'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_breadcrumbs_show_home', 'Breadcrumb Homepage Link', array($this, 'govph_breadcrumbs_show_home'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_breadcrumbs_last_separator', 'Append a separator in last breadcrumb', array($this, 'govph_breadcrumbs_last_separator'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_breadcrumbs_last_title', 'Append content title as last breadcrumb item', array($this, 'govph_breadcrumbs_last_title'), __FILE__, 'govph_main_section');
 
     // accessibility links
     add_settings_field('govph_acc_link_section', '<h3>Accessibility Links<h3>', array($this, 'govph_acc_link_section'), __FILE__, 'govph_main_section');
@@ -331,6 +337,51 @@ class GOVPH
   <?php
   }
 
+  public function govph_breadcrumbs_enable()
+  {
+    $true = ($this->options['govph_breadcrumbs_enable'] == 'true' ? "checked" : "");
+  ?>
+    <input type="checkbox" name="govph_options[govph_breadcrumbs_enable]" value="true" <?php echo $true ?>>
+    <span class="description">Check to display Breadcrumbs</span>
+  <?php
+  }
+
+  public function govph_breadcrumbs_separator()
+  {
+    $value = $this->options['govph_breadcrumbs_separator'] ? $this->options['govph_breadcrumbs_separator'] : ' › ';
+  ?>
+    <input type="text" name="govph_options[govph_breadcrumbs_separator]" value="<?php echo $value ?>"><br/>
+    <span class="description">Separator symbol in between breadcrumb links</span>
+  <?php
+  }
+
+  public function govph_breadcrumbs_show_home()
+  {
+    $true = ($this->options['govph_breadcrumbs_show_home'] == 'true' ? "checked" : "");
+  ?>
+    <input type="checkbox" name="govph_options[govph_breadcrumbs_show_home]" value="true" <?php echo $true ?>>
+    <span class="description">Check to show homepage link at the start of the breadcrumbs</span>
+  <?php
+  }
+
+  public function govph_breadcrumbs_last_separator()
+  {
+    $true = ($this->options['govph_breadcrumbs_last_separator'] == 'true' ? "checked" : "");
+  ?>
+    <input type="checkbox" name="govph_options[govph_breadcrumbs_last_separator]" value="true" <?php echo $true ?>>
+    <span class="description">Append a separator to the end of the breadcrumb</span>
+  <?php
+  }
+
+  public function govph_breadcrumbs_last_title()
+  {
+    $true = ($this->options['govph_breadcrumbs_last_title'] == 'true' ? "checked" : "");
+  ?>
+    <input type="checkbox" name="govph_options[govph_breadcrumbs_last_title]" value="true" <?php echo $true ?>>
+    <span class="description">Append the content title to the end of the breadcrumb</span>
+  <?php
+  }
+
   public function govph_sidebar_position()
   {
   ?>
@@ -498,6 +549,7 @@ function govph_displayoptions( $options ){
   switch ($options) {
     case 'govph_auxmenu':
       if ($option['govph_auxmenu'] === 'true') {
+        // TODO: add template for aux menu
         ?>
       <nav id="auxiliary" class="container-topbar">
         <div class="row">

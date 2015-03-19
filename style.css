@@ -1,5 +1,5 @@
 /*
-Theme Name:         Government Web Template for WordPress
+Theme Name:         GWT-Wordpress 6.1
 Theme URI:          http://i.gov.ph
 Description:        Custom WordPress theme based on the draft Unified Web Content Policy prepared by the PCDSPO, DOST-ASTI, and DOST-ICTO. Theme is built on HTML5 responsive WordPress framework based on ZURB's Foundation.
 Version:            6.1
@@ -100,6 +100,25 @@ line-height: 58px;
 }
 #aux-nav ul li.has-dropdown:hover .dropdown {
 	display: block;
+}
+
+/** breadcrumbs **/
+#breadcrumbs{
+	background: #f7f7f7;
+	border-top: solid 1px #ebebeb;
+	border-bottom: solid 1px #ebebeb;
+}
+#breadcrumbs ul.nav{
+	margin: 0;
+	padding-left: 15px;
+}
+#breadcrumbs ul li{
+	background: #f7f7f7;
+	color: #000;
+	font-size: 13px;
+	line-height: 58px;
+	display: inline;
+	white-space: nowrap;
 }
 
 /*masthead*/
