@@ -571,7 +571,7 @@ function govph_displayoptions( $options ){
       }
       break;
     case 'govph_logo_enable':
-      return !empty($option['govph_logo_enable'] && $option['govph_logo_enable'] == 1);
+      return (!empty($option['govph_logo_enable']) && $option['govph_logo_enable'] == 1);
       break;
     case 'govph_header_font_color':
       $header_font_color = (!empty($option['govph_header_font_color']) ? 'color:'.$option['govph_header_font_color'].';' : '');
