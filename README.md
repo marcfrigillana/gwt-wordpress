@@ -10,6 +10,7 @@ Use this as a a guide for creating your banner slider images:
 
 ###### Known bug
 - Fix notice error for wp_enqueue_script
+- Fix left and right template page layout issue
 
 ###### Future updates
 - Update the screenshot to gwt-6.0
