@@ -19,6 +19,11 @@ Use this as a a guide for creating your banner slider images:
 - add define borders for the menu
 - add an option to add automatic excerpt (read me) or manually add it
 - fix template name, version and screenshot
+- mac accessbility key - alt + option
+- feedback access key, allow alternate url
+- crossbrowser checklist
+- left sidebar template, right sidebar template layout issue.
+- title, remove text transform uppercase
 
 ###### CHANGE LOGS
 **03/18/2014**
