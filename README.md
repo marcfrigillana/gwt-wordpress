@@ -11,6 +11,8 @@ Use this as a a guide for creating your banner slider images:
 ###### Known bug
 - Fix notice error for wp_enqueue_script
 - Fix left and right template page layout issue
+- Separate Post limit to image slider
+- Compatibility issue on older version of PHP 5.2, causes white screen
 
 ###### Future updates
 - Update the screenshot to gwt-6.0
@@ -54,3 +56,6 @@ Use this as a a guide for creating your banner slider images:
 
 **03/19/2015**
 - added breadcrumbs support
+
+**04/10/2015**
+- added drop shadow on drop down menu
