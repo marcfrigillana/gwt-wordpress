@@ -15,13 +15,10 @@ Use this as a a guide for creating your banner slider images:
 - Compatibility issue on older version of PHP 5.2, causes white screen
 
 ###### Future updates
-- Update the screenshot to gwt-6.0
 - set the top menu to fixed
 - Add feature image.
 - Modify the slider into native widget
-- add define borders for the menu
 - add an option to add automatic excerpt (read me) or manually add it
-- fix template name, version and screenshot
 - mac accessbility key - alt + option
 - feedback access key, allow alternate url
 - crossbrowser checklist

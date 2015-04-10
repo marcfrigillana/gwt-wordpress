@@ -1,12 +1,12 @@
 /*
-Theme Name:         GWT-Wordpress 6.3
-Theme URI:          http://i.gov.ph
-Description:        Custom WordPress theme based on the draft Unified Web Content Policy prepared by the PCDSPO, DOST-ASTI, and DOST-ICTO. Theme is built on HTML5 responsive WordPress framework based on ZURB's Foundation.
-Version:            6.3
-Author:       		Jonathan Cuevas, Randy Pallones, John Mark Perocho, Stephanie Azarias, Voltaire Jeturian
+Theme Name:   GWT-Wordpress 6.3
+Theme URI:   http://i.gov.ph
+Description:  Custom WordPress theme based on the draft Unified Web Content Policy prepared by the PCDSPO, DOST-ASTI, and DOST-ICTO. Theme is built on HTML5 responsive WordPress framework based on ZURB's Foundation.
+Version:   6.3
+Author:  		Jonathan Cuevas, Randy Pallones, John Mark Perocho, Stephanie Azarias, Voltaire Jeturian
 Author URI: 		http://i.gov.ph
-License:            MIT License
-License URI:        http://www.opensource.org/licenses/mit-license.php
+License:   MIT License
+License URI:  http://www.opensource.org/licenses/mit-license.php
 */
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900);
@@ -89,11 +89,11 @@ line-height: 58px;
 #aux-nav.show-for-medium-up.open{ display: block !important;z-index: 1; }
 #aux-nav.open li.divider{ border: 0; }
 #aux-nav .top-bar-section .dropdown {
-  height: auto; 
-  width: auto; 
-  overflow: visible; 
-  clip: auto; 
-  display: none;
+ height: auto; 
+ width: auto; 
+ overflow: visible; 
+ clip: auto; 
+ display: none;
 }
 #aux-nav ul li.has-dropdown{
 
@@ -293,13 +293,13 @@ line-height: 58px;
 	#aux-nav li{ display: block; border:0;}
 	#aux-nav li a{ height: 58px; line-height: 58px; display: block;}
 	#aux-nav{ margin-left: 0; top: auto !important; left: 0 !important; width:100% !important; position: static !important; border-bottom: 1px solid #D8D8D8;}
-	#aux-nav section > ul{  width: 100%;  margin: 0;  padding: 0 20px;  height: auto; }
-	#aux-nav ul > li{  width: 100%;  display: block; }
-	#aux-nav ul li > a{  width: 100%;  display: block;  line-height: 58px;  background: #f7f7f7;  color: #000;  font-size: 13px;  padding: 0 20px;  position: relative;  border-top: 1px solid #ebebeb; }
-	#aux-nav ul li a:hover{  background: #EDEDED; }
-	#aux-nav ul li.has-dropdown > a:after{  content: "";  display: block;  width: 0;  height: 0;  border: inset 5px;  border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent;  border-top-style: solid;  margin-top: -2.5px;  top: 22.5px;
-	margin-top: 1.5px;  right: 30px;  position: absolute; }
-	#aux-nav ul li.has-dropdown ul{  margin-left: 15px; }
+	#aux-nav section > ul{ width: 100%; margin: 0; padding: 0 20px; height: auto; }
+	#aux-nav ul > li{ width: 100%; display: block; }
+	#aux-nav ul li > a{ width: 100%; display: block; line-height: 58px; background: #f7f7f7; color: #000; font-size: 13px; padding: 0 20px; position: relative; border-top: 1px solid #ebebeb; }
+	#aux-nav ul li a:hover{ background: #EDEDED; }
+	#aux-nav ul li.has-dropdown > a:after{ content: ""; display: block; width: 0; height: 0; border: inset 5px; border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent; border-top-style: solid; margin-top: -2.5px; top: 22.5px;
+	margin-top: 1.5px; right: 30px; position: absolute; }
+	#aux-nav ul li.has-dropdown ul{ margin-left: 15px; }
 	#aux-nav ul li.has-dropdown ul > li{ }
 	#aux-nav ul li.has-dropdown ul li > a{ }
 	#aux-nav section > ul {
@@ -311,12 +311,12 @@ line-height: 58px;
 	}
 
 	#aux-nav .top-bar-section .dropdown {
-	  height: auto; 
-	  width: auto; 
-	  overflow: visible; 
-	  clip: auto; 
-	  display: block;
-	  position: static !important;
+	 height: auto; 
+	 width: auto; 
+	 overflow: visible; 
+	 clip: auto; 
+	 display: block;
+	 position: static !important;
 	}
 	#aux-nav ul li.has-dropdown{
 
@@ -336,22 +336,22 @@ line-height: 58px;
 		line-height: 1.2;
 	}
 	#main-nav .top-bar li ul{ -webkit-box-shadow: 6px 10px 10px -6px rgba(0,0,0,0.5); -moz-box-shadow: 6px 10px 10px -6px rgba(0,0,0,0.5); box-shadow: 6px 10px 10px -6px rgba(0,0,0,0.5); }
-	#aux-nav{  position: static;  width: auto !important;  top: auto;  left: auto;
-	background: #f7f7f7;  color: #000;  line-height: 58px;  font-size: 13px; }
+	#aux-nav{ position: static; width: auto !important; top: auto; left: auto;
+	background: #f7f7f7; color: #000; line-height: 58px; font-size: 13px; }
 	#aux-nav .has-dropdown{ }
-	#aux-nav ul.dropdown{  width: 100%; }
-	#aux-nav ul.dropdown li{  border-bottom: solid 1px #ebebeb; }
-	#aux-nav li.has-dropdown > a:after {  content: "";  display: block;  width: 0;  height: 0;  border: inset 5px;  border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent;  border-top-style: solid;  margin-right: 15px;  margin-top: -2.5px;  position: absolute;  top: 50%;  right: 0; }
-	#aux-nav li {  float: left; padding-right: 0; list-style: none; }
-	#aux-nav li a{  background: #f7f7f7;  color: #000;  font-size: 13px;  line-height: 58px;  padding: 0 15px;  display: block;  white-space: nowrap; }
-	#aux-nav ul li a:hover{  background: #EDEDED; }
-	#aux-nav li.has-dropdown{  position: relative; }
+	#aux-nav ul.dropdown{ width: 100%; }
+	#aux-nav ul.dropdown li{ border-bottom: solid 1px #ebebeb; }
+	#aux-nav li.has-dropdown > a:after { content: ""; display: block; width: 0; height: 0; border: inset 5px; border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent; border-top-style: solid; margin-right: 15px; margin-top: -2.5px; position: absolute; top: 50%; right: 0; }
+	#aux-nav li { float: left; padding-right: 0; list-style: none; }
+	#aux-nav li a{ background: #f7f7f7; color: #000; font-size: 13px; line-height: 58px; padding: 0 15px; display: block; white-space: nowrap; }
+	#aux-nav ul li a:hover{ background: #EDEDED; }
+	#aux-nav li.has-dropdown{ position: relative; }
 	/** first level **/
-	#aux-nav li ul{  -webkit-box-shadow: 6px 10px 10px -6px rgba(0,0,0,0.5); -moz-box-shadow: 6px 10px 10px -6px rgba(0,0,0,0.5); box-shadow: 6px 10px 10px -6px rgba(0,0,0,0.5); }
-	#aux-nav li.has-dropdown > a{  padding-right: 35px !important; }
-	#aux-nav li.has-dropdown .dropdown{  display: none !important;  position: absolute;  margin-left: 0;  z-index: 1;  width: auto; }
-	#aux-nav li.has-dropdown > .dropdown > li{  position: relative;  width: 100%;   }
-	#aux-nav li.has-dropdown > .dropdown > li.has-dropdown > a:after{  border: none;  content: "\00bb";  top: 1rem;  margin-top: 4px;  right: 5px;  line-height: 1.2; }
-	#aux-nav li.has-dropdown > .dropdown > li > .dropdown{  position: absolute;  top: 0;  left: 100%; }
-	#aux-nav li.has-dropdown:hover > .dropdown{  display: block !important; }
+	#aux-nav li ul{ -webkit-box-shadow: 6px 10px 10px -6px rgba(0,0,0,0.5); -moz-box-shadow: 6px 10px 10px -6px rgba(0,0,0,0.5); box-shadow: 6px 10px 10px -6px rgba(0,0,0,0.5); }
+	#aux-nav li.has-dropdown > a{ padding-right: 35px !important; }
+	#aux-nav li.has-dropdown .dropdown{ display: none !important; position: absolute; margin-left: 0; z-index: 1; width: auto; }
+	#aux-nav li.has-dropdown > .dropdown > li{ position: relative; width: 100%; }
+	#aux-nav li.has-dropdown > .dropdown > li.has-dropdown > a:after{ border: none; content: "\00bb"; top: 1rem; margin-top: 4px; right: 5px; line-height: 1.2; }
+	#aux-nav li.has-dropdown > .dropdown > li > .dropdown{ position: absolute; top: 0; left: 100%; }
+	#aux-nav li.has-dropdown:hover > .dropdown{ display: block !important; }
 }
