@@ -354,8 +354,9 @@ function gwt_wp_breadcrumb() {
     if($post->post_parent){
       $anc = get_post_ancestors( $post->ID );
       $title = get_the_title();
+      $output = '';
       foreach ( $anc as $ancestor ) {
-        $output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a>'.$separator_block.'</li>';
+        $output .= '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a>'.$separator_block.'</li>';
       }
       echo $output;
       echo '<strong title="'.$title.'"> '.$title.'</strong>';
@@ -374,7 +375,6 @@ function gwt_wp_breadcrumb() {
     elseif (is_search()) {echo "<li>Search Results"; echo '</li>';}
   }
   echo '</ul>';
-  echo $output;
   return true;
 }
 
