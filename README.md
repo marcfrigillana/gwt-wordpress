@@ -56,3 +56,6 @@ Use this as a a guide for creating your banner slider images:
 
 **04/10/2015**
 - added drop shadow on drop down menu
+
+**04/12/2015**
+- Fix breadcrumbs bug
