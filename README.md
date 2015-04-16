@@ -24,6 +24,7 @@ Use this as a a guide for creating your banner slider images:
 - crossbrowser checklist
 - left sidebar template, right sidebar template layout issue.
 - title, remove text transform uppercase
+- accessibility, add title on a tag for title posts
 
 ###### CHANGE LOGS
 **03/18/2014**
