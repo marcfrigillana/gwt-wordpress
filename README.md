@@ -60,3 +60,10 @@ Use this as a a guide for creating your banner slider images:
 
 **04/12/2015**
 - Fix breadcrumbs bug
+
+**08/20/2015**
+- Added new Mega menu
+- Added new accessibility features
+-- High Contrast Mode
+-- Grayscale Mode
+-- Toggle font size
