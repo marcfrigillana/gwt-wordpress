@@ -1,8 +1,8 @@
 /*
-Theme Name:   GWT-Wordpress 6.3
+Theme Name:   GWT-Wordpress 6.3.2
 Theme URI:   http://i.gov.ph
 Description:  Custom WordPress theme based on the draft Unified Web Content Policy prepared by the PCDSPO, DOST-ASTI, and DOST-ICTO. Theme is built on HTML5 responsive WordPress framework based on ZURB's Foundation.
-Version:   6.3
+Version:   6.3.2
 Author:  		Jonathan Cuevas, Randy Pallones, John Mark Perocho, Stephanie Azarias, Voltaire Jeturian
 Author URI: 		http://i.gov.ph
 License:   MIT License
@@ -354,4 +354,332 @@ line-height: 58px;
 	#aux-nav li.has-dropdown > .dropdown > li.has-dropdown > a:after{ border: none; content: "\00bb"; top: 1rem; margin-top: 4px; right: 5px; line-height: 1.2; }
 	#aux-nav li.has-dropdown > .dropdown > li > .dropdown{ position: absolute; top: 0; left: 100%; }
 	#aux-nav li.has-dropdown:hover > .dropdown{ display: block !important; }
+}
+
+/** MENUS DROPDOWN **/
+#main-nav ul .dropdown li a,
+#aux-nav ul .dropdown li a{
+  line-height: 40px;
+}
+
+/** POST CONTENT **/
+#content{
+  border: 3px solid #3C8687;
+  border-radius: 3px;
+  padding: 0px;
+}
+
+#content .post-box{
+  padding: 0 20px;
+}
+
+#content [class~='post-box']:last-of-type article{
+  border-bottom: none;
+}
+
+#content .entry-header{
+  padding-bottom: 1.125rem;
+  padding-top: 65px;
+  position: relative;
+}
+
+#content .entry-header h5{
+  font-size: 20px;
+}
+
+#content img{
+  float: left;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+#content .widget-title{
+  margin: 0px;
+  color: #FFF;
+  background-color: #0C486C;
+  padding: 11px 20px;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.panel{
+  border-style: none;
+  padding: 0px;
+  background: #fff;
+  border-bottom: 3px solid #3C8687;
+}
+
+.post-box .entry-content{
+  padding: 0px;
+}
+
+.entry-content{
+  padding: 0 20px;
+  margin-top: 20px;
+}
+
+.post-box .entry-content p:first-child{
+  margin-top: 20px;
+  text-align: justify;
+  line-height: 22px;
+  color: gray;
+}
+
+/** POST NAVIGATION **/
+#nav-below{
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+#nav-below .screen-reader-text{
+  visibility: hidden;
+}
+
+#nav-below .nav-next{
+  font-size: .9em;
+  background-color: #CFF09F;
+  position: relative;
+  width: 24%;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #C4E4A9;
+  bottom: 14px;
+  float: right;
+}
+
+
+#nav-below .nav-previous{
+  font-size: .9em;
+  background-color: #CFF09F;
+  position: relative;
+  width: 24%;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #C4E4A9;
+  bottom: 14px;
+  float: left;
+}
+
+/** SIDE BARS **/
+#sidebar-left .widget, #sidebar-right .widget, 
+#panel-top .box-mode, #panel-bottom .box-mode{
+  padding: 0px;
+  background: #fff;
+  border-width: 3px;
+  border-color: #3C8687;
+  border-radius: 3px;
+}
+
+#sidebar-right .widget h5,
+#sidebar-left .widget h5{
+  margin: 0px;
+  color: #fff;
+  background-color: #0C486C;
+  padding: 11px 20px;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+#sidebar-right .widget .textwidget, 
+#sidebar-left .widget .textwidget{
+  background-color: #fff;
+  margin: 0px;
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 400;
+  padding: 0px;
+}
+
+#sidebar-right .widget .textwidget p {
+  font-weight: 400;
+  font-size: 17px;
+  margin-bottom: 0px;
+  padding: 12px 20px;
+}
+
+#sidebar-left aside:first-child{
+  border: none;
+}
+
+#sidebar-left .widget ul,
+#sidebar-right .widget ul{
+  margin: 0.6rem 0.5rem 0.7rem 2.4rem;
+}
+
+/** iGOV SERVICES **/
+#sidebar-left .row a{
+  font-size: 80%;
+}
+
+#sidebar-left div {
+  padding: 0px 15px 15px;
+}
+
+#sidebar-left div .igov-services{
+  margin: 0px 10px;
+  padding: 0px;
+  border-bottom: 3px solid #3C8687;
+}
+
+#sidebar-left div .igov-services p{
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+
+#sidebar-left div .igov-services:last-child{
+  border:none;
+}
+
+/** FOOTER **/
+#igov-theme-about{
+  padding-top: 40px;
+  background: rgb(151, 199, 149);
+  margin-top: 40px;
+  border-top: 2px solid #82A881;
+}
+
+#igov-theme-footer{
+  background: #E7F7D0;
+  margin-top: 3px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+#igov-theme-about p, #igov-theme-footer p{
+  line-height: 1.3;
+  margin-top: 1.25rem;
+}
+
+/** MEGA MENU LEFT SIDE**/
+.megamenu {
+  border-top: 2px solid #E9E9E9;
+  /*display: none;*/
+  margin: 0px;
+}
+
+.fullwidth {
+  max-width: initial;
+}
+
+#nav-megamenu {
+  background: #E9E9E9 none repeat scroll 0% 0%;
+}
+
+#nav-megamenu .nav-sub {
+  text-align: right;
+}
+
+#nav-megamenu .nav-sub h3 {
+  padding: 3rem 2rem 0px;
+}
+
+#nav-megamenu .tabs.vertical {
+  margin-bottom: 1.25rem;
+  margin-left: 0;
+  width: 100%;
+  float: left;
+}
+
+.tabs.vertical .tab-title {
+  top: auto;
+  position: inherit;
+  float: none;
+  display: block;
+}
+
+#nav-megamenu .tabs .tab-title.active a {
+  background: #F5F5F5 none repeat scroll 0% 0%;
+  color: #222;
+  display: block;
+}
+
+#nav-megamenu .tabs .tab-title a {
+  background: #E9E9E9 none repeat scroll 0% 0%;
+  font-family: "Roboto";
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  display: block;
+  color: #222;
+}
+
+/** MEGA MENU RIGHT SIDE **/
+#nav-megamenu .nav-sub-content {
+  background: #F5F5F5 none repeat scroll 0% 0%;
+}
+
+#nav-mega-menu {
+	margin-top: 58px;
+}
+
+.tabs-content.vertical {
+  width: 80%;
+  max-width: 80%;
+  float: left;
+  margin-left: -1px;
+  margin-bottom: 0;
+  padding-left: 1rem;
+  display: block;
+}
+
+#nav-megamenu .tabs-content.vertical > .content {
+  padding: 2rem 0.9375rem;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button), 
+.top-bar-section li.active:not(.has-form) a:hover:not(.button) {
+  background: #E4E4E4 none repeat scroll 0% 0%;
+}
+
+/** STICKY MENU **/
+#main-nav {
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/** EAR CONTENT **/
+.ear-content {
+	margin: 20px 0px;
+}
+
+/** BANNER CONTENT **/
+.banner-content {
+
+}
+
+/** ACCESSIBILITY PANEL **/
+#openMenu {
+	position: absolute;
+	left: 1.9em;
+	padding: 0px;
+	margin: 0px;
+	border-radius: 0px 3px 3px 0px;
+	background-color: #F7F7F7 !important;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+	padding: 3px;
+	width: 2em;
+}
+
+#acsblty {
+    background-color:#ccc;
+    width:30px;
+    /*float:left;*/
+    position:fixed;
+    top:100px;
+	/*right:-30px;*/
+	z-index: 999;
+	left: -30px;
+}
+
+#acsblty ul {
+    list-style: none;
+    margin:0;
+}
+
+#acsblty ul li {
+    border:1px solid #000;
+    text-align: center;
 }

@@ -31,17 +31,30 @@
       <?php govph_displayoptions( 'govph_headerimage' ); ?>
     }
     
-      h1.logo a {
+	h1.logo a {
       <?php govph_displayoptions( 'govph_header_font_color' ); ?>
       <?php govph_displayoptions( 'govph_logo_position' ); ?>
-      }
+	}
     
     div.container-banner {
-      <?php govph_displayoptions( 'govph_slidercolor' ); ?>
-        <?php govph_displayoptions( 'govph_sliderimage' ); ?>
+	  <?php govph_displayoptions( 'govph_slidercolor' ); ?>
+	  <?php govph_displayoptions( 'govph_sliderimage' ); ?>
     }
-  
   </style>
+  <script type="text/javascript" language="javascript">
+		var template_directory = '<?php echo get_template_directory_uri() ?>';
+		
+		function changeImage() {
+			var image = document.getElementById('openMenu');
+			if (image.src.match("arrow-left")) {
+				image.src = " + template_directory + /images/arrow-right.png";
+			} else {
+				image.src = "http://localhost/wordpress/wp-content/themes/gwt-wordpress-6.3.1/images/arrow-left.png";
+			}
+		}
+		
+		
+  </script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -108,7 +121,77 @@
       </div>
     </div>
   </nav>
-</div>  
+</div> 
+
+<div id="nav-mega-menu">
+  <?php //$parent_args = array( 'post_type' => 'govph_megamenu', 'post_parent' => 0, 'posts_per_page' => -1, 'orderby' => 'date', 'order' => 'ASC' );
+  $parent_args = array( 'posts_per_page' => 4, 'post_type' => 'govph_megamenu', 'post_parent' => 0 );
+  $parent_loop = new WP_Query( $parent_args );
+  if ( $parent_loop->have_posts() ) :
+    while ( $parent_loop->have_posts() ) : $parent_loop->the_post();
+
+     $title_to_id = str_replace(' ', '_', strtolower(get_the_title())); ?>
+
+      <div id="<?php echo $title_to_id; ?>-megamenu" class="megamenu">
+       <div id="nav-megamenu" class="row fullwidth collapse" data-equalizer>
+	    
+		<!-- start of left column mega menu -->
+        <div class="large-3 columns nav-sub" data-equalizer-watch>
+         <div data-equalizer-watch>
+          <h3><?php the_title(); ?></h3>
+          <p><?php the_content(); ?></p>
+          <ul class="tabs vertical" data-tab>
+
+           <?php $parent_page_id = ( '0' != $post->post_parent ? $post->post_parent : $post->ID );
+           $mypages = get_pages( array( 'child_of' => $parent_page_id,  'post_type' => 'govph_megamenu', 'sort_column' => 'post_date' ) );
+           $i = 1;
+           $j = 1;
+           // var_dump($mypages);
+           foreach( $mypages as $page ) :
+            $content = $page->post_content;
+            // if ( ! $content )
+            // continue;
+
+            $content = apply_filters( 'the_content', $content ); ?>
+
+            <li class="tab-title<?php echo $i === 1 ? ' active' : ''; ?>"><a href="#panel<?php echo $i; ?>"><?php echo $page->post_title; ?></a></li>
+            <?php $i++; endforeach; ?>
+
+          </ul>                  
+         </div>
+        </div> <!-- end of query -->
+
+		<!-- start of right column mega menu -->
+        <div class="large-9 columns nav-sub-content">
+         <div class="tabs-content vertical" data-equalizer-watch>
+          <?php foreach( $mypages as $page ) :
+          $content = $page->post_content;
+
+          // if ( ! $content )
+          //     continue;
+
+          $content = apply_filters( 'the_content', $content ); ?>
+          <div class="content<?php echo $j === 1 ? ' active' : ''; ?>" id="panel<?php echo $j; ?>">
+
+           <!-- custom field columns -->
+           <div class="row">
+            <div class="large-12 medium-12 columns">
+             <?php echo do_shortcode($page->post_content); ?>
+            </div>
+           </div>
+           <!-- end custom field columns -->
+
+          </div>
+          <?php $j++; endforeach; ?>
+         </div>
+        </div>
+		<!-- end of right column mega menu -->
+       </div>
+      </div>
+    <?php endwhile; ?>
+   <?php endif; //If have post ?>
+   <?php wp_reset_query(); ?>
+</div>
 
 <?php
   // create a dynamic column on ear content
@@ -140,19 +223,19 @@
       <h1 class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php govph_displayoptions( 'govph_logo' ); ?></a></h1>
     </div>
     
-      <?php if(is_active_sidebar('ear-content-1')): ?>
-      <div class="<?php echo $ear_content_class ?> columns">
-        <?php do_action( 'before_sidebar' ); ?>
-        <?php dynamic_sidebar( 'ear-content-1' ) ?>
-          </div>
-      <?php endif; ?>
+    <?php if(is_active_sidebar('ear-content-1')): ?>
+    <div class="<?php echo $ear_content_class ?> columns">
+      <?php do_action( 'before_sidebar' ); ?>
+      <?php dynamic_sidebar( 'ear-content-1' ) ?>
+    </div>
+    <?php endif; ?>
     
-      <?php if(is_active_sidebar('ear-content-2')): ?>
-          <div class="<?php echo $ear_content_2_class ?> columns">
-        <?php do_action( 'before_sidebar' ); ?>
-              <?php dynamic_sidebar( 'ear-content-2' ) ?>
-        </div>
-      <?php endif; ?>
+    <?php if(is_active_sidebar('ear-content-2')): ?>
+    <div class="<?php echo $ear_content_2_class ?> columns">
+      <?php do_action( 'before_sidebar' ); ?>
+      <?php dynamic_sidebar( 'ear-content-2' ) ?>
+    </div>
+    <?php endif; ?>
     
   </div>
 </div>

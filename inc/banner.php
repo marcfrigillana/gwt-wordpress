@@ -60,6 +60,7 @@ if(!is_home()){
     <?php if(is_active_sidebar('banner-section-1') || is_active_sidebar('banner-section-2')): ?>
       </div><!-- closing row -->
     <?php endif; ?>
+  
   <?php else: ?>
     <?php if (is_404()): ?>
       <div class="row container-main">
@@ -141,15 +142,13 @@ if(!is_home()){
           </header>
         </div>
       </div>
-    <?php else: ?>
+    
+	<?php else: ?>
       <div class="row">
         <div class="large-9 columns container-main">
           <header>
           <?php while ( have_posts() ) : the_post(); ?>
-          <h1 class="entry-title"><?php the_title(); ?></h1>
-          <div class="entry-meta">
-            <?php gwt_wp_posted_on(); ?>
-          </div><!-- .entry-meta -->
+            <h1 class="entry-title"><?php the_title(); ?></h1>
           <?php endwhile; // end of the loop. ?>
           </header>
         </div>
