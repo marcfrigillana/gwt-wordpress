@@ -11,7 +11,7 @@ include_once('inc/banner.php');
 
 <div id="main-content" class="container-main" role="document">
 	<div class="row search-results">
-		<div id="content" class="<?php govph_displayoptions( 'govph_content_position' ); ?>large-12 columns">
+		<div id="content" class="<?php govph_displayoptions( 'govph_content_position' );?> columns">
 			<?php if ( have_posts() ) : ?>
 
 				<?php /* Start the Loop */ ?>
@@ -29,9 +29,16 @@ include_once('inc/banner.php');
 
 			<?php endif; ?>
 		</div>
-		
-		<?php // get_sidebar(); ?>
-		
+		<?php 
+		if(is_active_sidebar('left-sidebar')){
+			govph_displayoptions( 'govph_sidebar_left' );
+		}
+		?>
+		<?php 
+		if(is_active_sidebar('right-sidebar')){
+			govph_displayoptions( 'govph_sidebar_right' );
+		}
+		?>		
 	</div>
 </div>
 

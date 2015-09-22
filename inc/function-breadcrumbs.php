@@ -1,7 +1,6 @@
 <?php
 /**
  * GWT Breadcrumbs
- * 
  */
 function gwt_wp_breadcrumb() {
 	global $post;
@@ -13,14 +12,30 @@ function gwt_wp_breadcrumb() {
 	$separator = $option['govph_breadcrumbs_separator'] ? $option['govph_breadcrumbs_separator'] : ' › ';
 	$separator_block = '<span class="separator">'.$separator.'</span>';
 
-	echo '<ul class="nav">';
+	
 	if (!is_home()) {
+		echo '<ul class="breadcrumbs">';
 		if($option['govph_breadcrumbs_show_home'] == 'true'){
-			echo '<li><a href="';
+			echo '<li>You are here:</li>';
+			echo '<li><a class="pathway" href="';
 			echo get_option('home');
 			echo '">';
 			echo 'Home';
-			echo '</a>'.$separator_block.'</li>';
+			echo '</a></li>';
+			//echo '</a>'.$separator_block.'</li>';
+		} else {
+			echo '<li>You are here:</li>';
+		}
+		
+	} else {
+		if($option['govph_breadcrumbs_show_home'] == 'true'){
+			echo '<ul class="breadcrumbs">';
+			echo '<li>You are here:</li>';
+			echo '<li><a class="pathway" href="';
+			echo get_option('home');
+			echo '">';
+			echo 'Home';
+			echo '</a></li>';
 		}
 	}
 
@@ -42,12 +57,13 @@ function gwt_wp_breadcrumb() {
 			$anc = get_post_ancestors( $post->ID );
 			$title = get_the_title();
 			foreach ( $anc as $ancestor ) {
-				$output = '<li><a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a>'.$separator_block.'</li>';
+				$output = '<li><a class="pathway" href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li>';
 			}
 			echo $output;
-			echo '<strong title="'.$title.'"> '.$title.'</strong>';
+			echo '<li><span class="current">'.get_the_title().'</span></li>';
+			//echo '<strong title="'.$title.'"> '.$title.'</strong>';
 		} else {
-			echo '<li><strong> '.get_the_title().'</strong></li>';
+			echo '<li><span class="current"> '.get_the_title().'</span></li>';
 		}
 	}
   

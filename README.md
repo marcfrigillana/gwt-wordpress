@@ -9,13 +9,12 @@ Use this as a a guide for creating your banner slider images:
 - Linked article should be indicated in the content field
 
 ###### Known bug
-- Fix notice error for wp_enqueue_script
+- ~~Fix notice error for wp_enqueue_script~~
 - Fix left and right template page layout issue
 - Separate Post limit to image slider
 - Compatibility issue on older version of PHP 5.2, causes white screen
 
 ###### Future updates
-- set the top menu to fixed
 - Add feature image.
 - Modify the slider into native widget
 - add an option to add automatic excerpt (read me) or manually add it
@@ -24,11 +23,19 @@ Use this as a a guide for creating your banner slider images:
 - crossbrowser checklist
 - left sidebar template, right sidebar template layout issue.
 - title, remove text transform uppercase
-- accessibility, add title on a tag for title posts
+- Font
+  - hierarchy
+  - headings
+- Media Query
+  - Tablet/phone: Max Size 1024px
+  - Adjust pixel-size ratio
+  - Foundation media queries
+- Panel
+  - Panel content conditions
 
 ###### CHANGE LOGS
 **03/18/2014**
-- Full widtth template functions
+- Full width template functions
 - Text decoration for standard footer links
 - Slider get functions
 
@@ -53,17 +60,17 @@ Use this as a a guide for creating your banner slider images:
 - Remove box effect on Author
 
 **03/19/2015**
-- added breadcrumbs support
+- Added breadcrumbs support
 
 **04/10/2015**
-- added drop shadow on drop down menu
+- Added drop shadow on drop down menu
 
-**04/12/2015**
-- Fix breadcrumbs bug
-
-**08/20/2015**
-- Added new Mega menu
-- Added new accessibility features
-  - High Contrast Mode
-  - Grayscale Mode
-  - Toggle font size
+**09/22/2015**
+- Added new accessibility features:
+  - Toggle High contrast mode
+  - Toggle Grey scale
+  - Popup Accessibility Statement
+- Fix Breadcrumbs '/' after Youre Here:
+- Fix Panel Top extra padding issue.
+- Added mega menu feature
+- Sticky top menu

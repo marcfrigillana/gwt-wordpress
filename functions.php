@@ -56,7 +56,7 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
- * The Options Page.
+ * Theme Options Page.
  */
 require get_template_directory() . '/inc/options.php';
 

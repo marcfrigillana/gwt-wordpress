@@ -14,14 +14,14 @@ function gwt_wp_widgets_init() {
     'topbar_left' => __( 'Left Menu Top bar', 'gwt_wp' ),
     'topbar_right' => __( 'Right Menu Top bar', 'gwt_wp' ),
   ) );
-	register_sidebar( array(
-		'name'          => __( 'Left Sidebar', 'gwt_wp' ),
-		'id'            => 'left-sidebar',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h5 class="widget-title">',
-		'after_title'   => '</h5>',
-	) );
+  register_sidebar( array(
+	'name'          => __( 'Left Sidebar', 'gwt_wp' ),
+	'id'            => 'left-sidebar',
+	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+	'after_widget'  => '</aside>',
+	'before_title'  => '<h5 class="widget-title">',
+	'after_title'   => '</h5>',
+  ) );
   register_sidebar( array(
     'name'          => __( 'Right Sidebar', 'gwt_wp' ),
     'id'            => 'right-sidebar',

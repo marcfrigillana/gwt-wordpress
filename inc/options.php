@@ -158,7 +158,8 @@ class GOVPH
     add_settings_field('govph_anchorcolor', 'Anchor Color Settings', array($this, 'govph_anchor_color_setting'), __FILE__, 'govph_main_section');
     add_settings_field('govph_sidebar_position', 'Sidebar Settings', array($this, 'govph_sidebar_position'), __FILE__, 'govph_main_section');
     add_settings_field('govph_disable_search', 'Search Enable', array($this, 'govph_disable_search'), __FILE__, 'govph_main_section');
-    // add govph_breadcrumbs separator, and option
+    
+	// add govph_breadcrumbs separator, and option
     add_settings_field('govph_breadcrumbs_enable', 'Enable Breadcrumbs', array($this, 'govph_breadcrumbs_enable'), __FILE__, 'govph_main_section');
     add_settings_field('govph_breadcrumbs_separator', 'Breadcrumbs Separator', array($this, 'govph_breadcrumbs_separator'), __FILE__, 'govph_main_section');
     add_settings_field('govph_breadcrumbs_show_home', 'Breadcrumb Homepage Link', array($this, 'govph_breadcrumbs_show_home'), __FILE__, 'govph_main_section');
@@ -191,17 +192,6 @@ class GOVPH
   {
 
   }
-
-  // public function govph_validate_settings($plugin_options)
-  // {
-  //  if (!empty($_FILES['govph_options']['tmp_name'])) {
-  //    $overide = array('test_form' => false);
-  //    $file = wp_handle_upload($_FILES['govph_options'], $overide);
-  //    var_dump($file);
-  //    die();
-
-  //  }
-  // }
 
   /*
    * Inputs
@@ -614,9 +604,9 @@ function govph_displayoptions( $options ){
     case 'govph_content_position':
       $content_class = 'large-12 medium-12 ';
       if(is_active_sidebar('left-sidebar')){
-        $content_class = 'large-8 medium-8 large-push-4 medium-push-4  ';
+        $content_class = 'large-8 medium-8 large-push-4 medium-push-4 ';
         if(is_active_sidebar('right-sidebar')){
-          $content_class = 'large-6 medium-6 large-push-3 medium-push-3  ';
+          $content_class = 'large-6 medium-6 large-push-3 medium-push-3 ';
         }
       }
       elseif(is_active_sidebar('right-sidebar')){
@@ -872,32 +862,6 @@ function govph_displayoptions( $options ){
         echo $panel_top_4;
       }
       break;
-   /* case 'govph_sidebar_position':
-        if ($option['govph_sidebar_position'] === 'both') {
-          echo 'large-3 ';
-        } else {
-          echo 'large-4 ';
-        }
-        break;
-    case 'govph_sidebar_left':
-        if ($option['govph_sidebar_position'] === 'left' || $option['govph_sidebar_position'] === 'both') {
-          get_sidebar('left');
-        }
-        break;
-    case 'govph_sidebar_right':
-        if ($option['govph_sidebar_position'] === 'right' || $option['govph_sidebar_position'] === 'both') {
-          get_sidebar('right');
-        }
-        break;
-    case 'govph_content_position':
-        if ($option['govph_sidebar_position'] === 'both') {
-          echo 'large-6 ';
-        } elseif ($option['govph_sidebar_position'] === 'fullwidth') {
-          echo 'large-12 ';
-        } else {
-          echo 'large-8 ';
-        }
-        break;*/
     case 'govph_accessibility_links_front':
       $links = '<ul>';
       $links .= '<li><a href="">Skip to Main Content</a></li>';

@@ -96,6 +96,7 @@ else{
     <?php endif; // if active footer-4 ?>
   </div>
 </div>
+<div id="darklight"></div>
 
 <!-- standard footer -->
 <div id="gwt-standard-footer"></div>
@@ -109,13 +110,6 @@ else{
 }(document, 'script', 'gwt-footer-jsdk'));
 </script>
 <!-- end standard footer -->
-<?php /*
-<!--script>
-document.write('<script src=' +
-('__proto__' in {} ? '<?php  echo get_template_directory_uri() . '/js/vendor/zepto'; ?>' : '<?php  echo get_template_directory_uri() . '/js/vendor/jquery'; ?>') +
-'.js><\/script>')
-</script-->
-*/ ?>
 <?php wp_footer(); ?>
 <script type="text/javascript">
 (function($) {

@@ -5,7 +5,11 @@
  * @package gwt_wp
  */
 ?>
-<div id="panel-top" class="row" role="complementary">
+
+<?php if(is_active_sidebar('panel-top-1') || is_active_sidebar('panel-top-2') || is_active_sidebar('panel-top-3') ||
+is_active_sidebar('panel-top-4')): ?>
+<div id="panel-top" role="complementary">
+  <div class="row">
 	<?php if(is_active_sidebar('panel-top-1')): ?>
 	<aside id="panel-top-1" class="<?php govph_displayoptions( 'govph_position_panel_top_1' ); ?>columns" role="complementary">
 		<?php do_action( 'before_sidebar' ); ?>
@@ -30,4 +34,6 @@
 		<?php dynamic_sidebar( 'panel-top-4' ) ?>
 	</aside>
 	<?php endif; ?>
+  </div>
 </div>
+<?php endif; ?>

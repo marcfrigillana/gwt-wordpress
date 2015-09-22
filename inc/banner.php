@@ -1,5 +1,4 @@
 <?php if (is_home()){
-
   $banner_class = ' large-12';
   $banner_2_class = '';
   $banner_3_class = '';
@@ -20,7 +19,6 @@
     $banner_3_class = ' large-3';
   }
   $banner_class .= ' show-for-medium-up';
-
 }
 
 $container_class = '';
@@ -34,7 +32,7 @@ if(!is_home()){
 
   <?php if (is_home()): ?>
     <?php if(is_active_sidebar('banner-section-1')): ?>
-      <div class="row collapse">
+      <div class="row">
     <?php endif; ?>
 
     <?php if($banner_slider = efs_get_slider()): ?>

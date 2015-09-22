@@ -17,23 +17,7 @@ include_once('inc/banner.php');
 <?php govph_displayoptions( 'govph_panel_top' ); ?>
 
 <div class="container-main" role="document">
-	<div id="acsblty">
-		<div id="acsblty-button">
-			<img id="openMenu" class="is_closed" src="<?php bloginfo('template_directory'); ?>/images/arrow-right.png" onclick="changeImage()">
-		</div>
-		<div id="acsblty-panel">
-			<ul>
-				<li><a href="#" role="button" class="toggle-contrast" id="is_normal_contrast" title="Toggle High Contrast">1</a></li>
-				<li><a href="#" role="button" class="toggle-grayscale" id="is_normal_color" title="Toggle Grayscale">2</a></li>
-				<li><a href="#" role="button" class="toggle-fontsize" id="is_normal_fontsize" title="Toggle Font size">3</a></li>
-				<li><a href="#" role="button" class="toggle-accessibility" id="gwt_accessibility" title="Toggle Accessibility">4</a></li>
-			</ul>
-		</div>
-	</div>
-	
-	
 	<div id="main-content" class="row">
-		
 		<div id="content" class="<?php govph_displayoptions( 'govph_content_position' ); ?>columns" role="main">
 			<?php if ( have_posts() ) : ?>
 
