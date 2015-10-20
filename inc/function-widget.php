@@ -15,6 +15,11 @@ function gwt_wp_widgets_init() {
     'topbar_right' => __( 'Right Menu Top bar', 'gwt_wp' ),
   ) );
   register_sidebar( array(
+  	'name'		=> __( 'My Sidebar', 'gwt_wp'),
+	'id'		=> 'my-sidebar',
+	'before_widget'	=> '<aside id="%1$s" class"widget %2$s"',
+  ) );
+  register_sidebar( array(
 	'name'          => __( 'Left Sidebar', 'gwt_wp' ),
 	'id'            => 'left-sidebar',
 	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
