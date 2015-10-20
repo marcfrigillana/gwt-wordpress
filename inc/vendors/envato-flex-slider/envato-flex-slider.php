@@ -82,7 +82,7 @@ function efs_get_slider(){
 		  
 		while (have_posts()) : the_post(); 
 		$img= get_the_post_thumbnail($post_id, 'full');
-		$slide_link= get_the_content($post_id);
+		$slide_link= get_the_permalink;
 		$caption = get_the_title();
 
 		$slider.='<li><a href='.$slide_link.'>'.$img.'<p class="flex-caption">'.$caption.'</p></a></li>';
